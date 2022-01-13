@@ -8,13 +8,13 @@ import tsi.ensg.jee.colloque.services.ParticipantDao;
 @Controller
 public class ApplicationController {
 
-    @GetMapping("/participant")
+    @GetMapping("/participants")
     public String getParticipant(Model model) {
         ParticipantDao daoPart = new ParticipantDao();
         long lisa = daoPart.create("Lisa", "Simpson",
                 "lisa.simspson@jgv.com", "10/01/2002",
                 "ENSG", "...");
-        model.addAttribute("participant", lisa); // Ajout au modèle
+        model.addAttribute("participants", lisa); // Ajout au modèle
         return "participant"; //Envoi vers la vue
     }
 }
