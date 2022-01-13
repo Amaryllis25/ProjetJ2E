@@ -1,11 +1,4 @@
-package tsi.ensg.jee.colloque.session;
-
-import tsi.ensg.jee.colloque.metier.Participant;
-import tsi.ensg.jee.colloque.services.EvenementDao;
-import tsi.ensg.jee.colloque.services.IntervenantDao;
-import tsi.ensg.jee.colloque.services.ParticipantDao;
-
-import java.util.List;
+package tsi.ensg.jee.colloque;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

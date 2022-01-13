@@ -2,11 +2,13 @@ package tsi.ensg.jee.colloque.services;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Service;
 import tsi.ensg.jee.colloque.session.HibernateUtils;
 import tsi.ensg.jee.colloque.metier.Participant;
 
 import java.util.List;
 
+@Service
 public class ParticipantDao {
     private final SessionFactory sessionFactory = HibernateUtils.createSessionFactory();
 
