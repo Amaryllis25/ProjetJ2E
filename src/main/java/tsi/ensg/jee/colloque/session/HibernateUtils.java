@@ -33,9 +33,9 @@ public class HibernateUtils {
         session.close();
     }
 
-    public List<Participant> getAllEmployee(){
+    public List<Participant> getAllParticipant(){
         Session session = sessionFactory.openSession();
-        List<Participant> result = session.createQuery("from Employee").list();
+        List<Participant> result = session.createQuery("from Participant").list();
         session.close();
         return result;
     }

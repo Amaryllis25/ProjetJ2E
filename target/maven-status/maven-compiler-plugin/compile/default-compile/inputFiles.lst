@@ -1,0 +1,8 @@
+/home/formation/Bureau/JEE/Projet/ProjetJ2E/src/main/java/tsi/ensg/jee/colloque/metier/Evenement.java
+/home/formation/Bureau/JEE/Projet/ProjetJ2E/src/main/java/tsi/ensg/jee/colloque/session/ApplicationController.java
+/home/formation/Bureau/JEE/Projet/ProjetJ2E/src/main/java/tsi/ensg/jee/colloque/services/EvenementDao.java
+/home/formation/Bureau/JEE/Projet/ProjetJ2E/src/main/java/tsi/ensg/jee/colloque/session/HibernateUtils.java
+/home/formation/Bureau/JEE/Projet/ProjetJ2E/src/main/java/tsi/ensg/jee/colloque/metier/Intervenant.java
+/home/formation/Bureau/JEE/Projet/ProjetJ2E/src/main/java/tsi/ensg/jee/colloque/metier/Participant.java
+/home/formation/Bureau/JEE/Projet/ProjetJ2E/src/main/java/tsi/ensg/jee/colloque/services/ParticipantDao.java
+/home/formation/Bureau/JEE/Projet/ProjetJ2E/src/main/java/tsi/ensg/jee/colloque/services/IntervenantDao.java

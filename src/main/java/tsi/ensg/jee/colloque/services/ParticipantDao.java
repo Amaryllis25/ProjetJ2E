@@ -5,7 +5,6 @@ import org.hibernate.SessionFactory;
 import tsi.ensg.jee.colloque.session.HibernateUtils;
 import tsi.ensg.jee.colloque.metier.Participant;
 
-import java.util.Date;
 import java.util.List;
 
 public class ParticipantDao {
