@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="tsi.ensg.jee.services.EvenementDaoTest" time="3.214" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="tsi.ensg.jee.session.HibernateUtilsTest" time="0" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="13"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -57,9 +57,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="57.0"/>
   </properties>
-  <testcase name="testCreateMethod" classname="tsi.ensg.jee.services.EvenementDaoTest" time="2.301"/>
-  <testcase name="testUpdateMethod" classname="tsi.ensg.jee.services.EvenementDaoTest" time="0.324"/>
-  <testcase name="testDeleteMethod" classname="tsi.ensg.jee.services.EvenementDaoTest" time="0.282"/>
-  <testcase name="testUpdateParticipantMethod" classname="tsi.ensg.jee.services.EvenementDaoTest" time="0.168"/>
-  <testcase name="testDefaultConstructor" classname="tsi.ensg.jee.services.EvenementDaoTest" time="0.139"/>
+  <testcase name="testGetAllEmployeeMethod" classname="tsi.ensg.jee.session.HibernateUtilsTest" time="0"/>
+  <testcase name="testInsertMethod" classname="tsi.ensg.jee.session.HibernateUtilsTest" time="0"/>
+  <testcase name="testSessionFactoryMethod" classname="tsi.ensg.jee.session.HibernateUtilsTest" time="0"/>
 </testsuite>
