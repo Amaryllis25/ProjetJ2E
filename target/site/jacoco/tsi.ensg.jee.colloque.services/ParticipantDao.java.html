@@ -9,57 +9,58 @@ import java.util.Date;
 import java.util.List;
 
 public class ParticipantDao {
-<span class="nc" id="L12">    private final SessionFactory sessionFactory = HibernateUtils.createSessionFactory();</span>
+<span class="fc" id="L12">    private final SessionFactory sessionFactory = HibernateUtils.createSessionFactory();</span>
 
-<span class="nc" id="L14">    public ParticipantDao() {</span>
-<span class="nc" id="L15">    }</span>
+<span class="fc" id="L14">    public ParticipantDao() {</span>
+<span class="fc" id="L15">    }</span>
 
     public long create(String firstName, String lastName, String email,
                        String birth_date, String organisation, String observations) {
-<span class="nc" id="L19">        Participant participant = new Participant(firstName, lastName, email,</span>
+<span class="fc" id="L19">        Participant participant = new Participant(firstName, lastName, email,</span>
                 birth_date, organisation, observations);
-<span class="nc" id="L21">        Session session = sessionFactory.openSession();</span>
-<span class="nc" id="L22">        session.beginTransaction();</span>
-<span class="nc" id="L23">        session.persist(participant);</span>
-<span class="nc" id="L24">        session.getTransaction().commit();</span>
-<span class="nc" id="L25">        session.close();</span>
-<span class="nc" id="L26">        return participant.getNumPerson();</span>
+<span class="fc" id="L21">        Session session = sessionFactory.openSession();</span>
+<span class="fc" id="L22">        session.beginTransaction();</span>
+<span class="fc" id="L23">        session.persist(participant);</span>
+<span class="fc" id="L24">        session.getTransaction().commit();</span>
+<span class="fc" id="L25">        session.close();</span>
+<span class="fc" id="L26">        return participant.getNumPerson();</span>
     }
 
     public boolean delete(long id) {
-<span class="nc" id="L30">        Participant participantToDelete = this.get(id);</span>
-<span class="nc" id="L31">        Session session = sessionFactory.openSession();</span>
-<span class="nc" id="L32">        session.beginTransaction();</span>
-<span class="nc" id="L33">        session.delete(participantToDelete);</span>
-<span class="nc" id="L34">        session.getTransaction().commit();</span>
-<span class="nc" id="L35">        session.close();</span>
-<span class="nc" id="L36">        return true;</span>
+<span class="fc" id="L30">        Participant participantToDelete = this.get(id);</span>
+<span class="fc" id="L31">        Session session = sessionFactory.openSession();</span>
+<span class="fc" id="L32">        session.beginTransaction();</span>
+<span class="fc" id="L33">        session.delete(participantToDelete);</span>
+<span class="fc" id="L34">        session.getTransaction().commit();</span>
+<span class="fc" id="L35">        session.close();</span>
+<span class="fc" id="L36">        return true;</span>
     }
 
-    public boolean update(long id) {
-<span class="nc" id="L40">        Participant participantToUpdate = this.get(id);</span>
-<span class="nc" id="L41">        Session session = sessionFactory.openSession();</span>
-<span class="nc" id="L42">        session.beginTransaction();</span>
-<span class="nc" id="L43">        session.merge(participantToUpdate);</span>
-<span class="nc" id="L44">        session.getTransaction().commit();</span>
-<span class="nc" id="L45">        session.close();</span>
-<span class="nc" id="L46">        return true;</span>
+    public boolean update(long id, Participant participant) {
+<span class="fc" id="L40">        Participant participantToUpdate = participant;</span>
+<span class="fc" id="L41">        participantToUpdate.setNumPerson(id);</span>
+<span class="fc" id="L42">        Session session = sessionFactory.openSession();</span>
+<span class="fc" id="L43">        session.beginTransaction();</span>
+<span class="fc" id="L44">        session.merge(participantToUpdate);</span>
+<span class="fc" id="L45">        session.getTransaction().commit();</span>
+<span class="fc" id="L46">        session.close();</span>
+<span class="fc" id="L47">        return true;</span>
     }
 
-        public Participant get(long id) {
-<span class="nc" id="L50">        Session session = sessionFactory.openSession();</span>
-<span class="nc" id="L51">        session.beginTransaction();</span>
-<span class="nc" id="L52">        Participant result = session.get(Participant.class, id);</span>
-<span class="nc" id="L53">        session.getTransaction().commit();</span>
-<span class="nc" id="L54">        session.close();</span>
-<span class="nc" id="L55">        return result;</span>
+    public Participant get(long id) {
+<span class="fc" id="L51">        Session session = sessionFactory.openSession();</span>
+<span class="fc" id="L52">        session.beginTransaction();</span>
+<span class="fc" id="L53">        Participant result = session.get(Participant.class, id);</span>
+<span class="fc" id="L54">        session.getTransaction().commit();</span>
+<span class="fc" id="L55">        session.close();</span>
+<span class="fc" id="L56">        return result;</span>
     }
 
     public List&lt;Participant&gt; getAll() {
-<span class="nc" id="L59">        Session session = sessionFactory.openSession();</span>
-<span class="nc" id="L60">        List&lt;Participant&gt; result = session.createQuery(&quot;from Participant&quot;).list();</span>
-<span class="nc" id="L61">        session.close();</span>
-<span class="nc" id="L62">        return result;</span>
+<span class="fc" id="L60">        Session session = sessionFactory.openSession();</span>
+<span class="fc" id="L61">        List&lt;Participant&gt; result = session.createQuery(&quot;from Participant&quot;).list();</span>
+<span class="fc" id="L62">        session.close();</span>
+<span class="fc" id="L63">        return result;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

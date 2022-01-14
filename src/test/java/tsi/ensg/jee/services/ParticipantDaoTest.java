@@ -33,9 +33,6 @@ public class ParticipantDaoTest {
     public void testDeleteMethod() {
         ParticipantDao participantDao = new ParticipantDao();
 
-        Participant participant = new Participant("Amaryllis", "Vignaud", "avignaud@gateau.fr",
-                "25/06/1999", "ENSG", "Fan d'Undertale");
-
         long p1 = participantDao.create("Amaryllis", "Vignaud", "avignaud@gateau.fr",
                 "25/06/1999", "ENSG", "Fan d'Undertale");
         long p2 = participantDao.create("ClaireMa", "Alla", "cmalla@gateau.fr",

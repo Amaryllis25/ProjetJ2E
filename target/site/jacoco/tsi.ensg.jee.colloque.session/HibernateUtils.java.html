@@ -13,11 +13,11 @@ import java.util.List;
 <span class="nc" id="L13">    public final SessionFactory sessionFactory = createSessionFactory();</span>
 
     public static SessionFactory createSessionFactory(){
-<span class="nc" id="L16">        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()</span>
-<span class="nc" id="L17">                .configure().build();</span>
+<span class="fc" id="L16">        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()</span>
+<span class="fc" id="L17">                .configure().build();</span>
         try {
-<span class="nc" id="L19">            return new MetadataSources(registry)</span>
-<span class="nc" id="L20">                    .buildMetadata().buildSessionFactory();</span>
+<span class="fc" id="L19">            return new MetadataSources(registry)</span>
+<span class="fc" id="L20">                    .buildMetadata().buildSessionFactory();</span>
 <span class="nc" id="L21">        } catch (Exception e) {</span>
 <span class="nc" id="L22">            e.printStackTrace();</span>
 <span class="nc" id="L23">            StandardServiceRegistryBuilder.destroy(registry);</span>
