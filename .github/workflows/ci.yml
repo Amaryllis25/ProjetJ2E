@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - init_tests
+      - fix_tests
   pull_request:
     branches:
       - main
