@@ -6,4 +6,4 @@ tp4,tsi.ensg.jee.colloque.services,ParticipantDao,111,0,0,0,34,0,6,0,6,0
 tp4,tsi.ensg.jee.colloque.services,EvenementDao,116,0,0,0,35,0,6,0,6,0
 tp4,tsi.ensg.jee.colloque.metier,Intervenant,99,0,12,0,17,0,15,0,9,0
 tp4,tsi.ensg.jee.colloque.metier,Evenement,274,0,26,0,40,0,39,0,26,0
-tp4,tsi.ensg.jee.colloque.metier,Participant,150,42,20,0,14,16,21,8,11,8
+tp4,tsi.ensg.jee.colloque.metier,Participant,0,192,6,14,0,30,6,23,0,19

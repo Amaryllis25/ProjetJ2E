@@ -62,10 +62,28 @@ public class ParticipantTest {
     @Test
     public void testMethodEqualsFalse(){
         Participant participant = new Participant("Amaryllis", "Vignaud", "avignaud@gateau.fr",
-                "25/06/1999", "ENSG", "Fan d'Undertale");
+                "25/06/1999", "M2TSI", "Fan d'Undertale");
         Participant participant2 = new Participant("ClaireMa", "Alla", "cmalla@gateau.fr",
+                "25/04/1999", "ING3", "Fan de chocolat");
+
+        Assert.assertFalse(participant.equals(participant2));
+    }
+
+    @Test
+    public void testMethodEqualsSame(){
+        Participant participant = new Participant("Amaryllis", "Vignaud", "avignaud@gateau.fr",
                 "25/06/1999", "ENSG", "Fan d'Undertale");
 
+        Assert.assertTrue(participant.equals(participant));
+    }
+
+    @Test
+    public void testMethodEqualsNull(){
+        Participant participant = new Participant("Amaryllis", "Vignaud", "avignaud@gateau.fr",
+                "25/06/1999", "ENSG", "Fan d'Undertale");
+        String participant2 = "Test";
+
+        Assert.assertFalse(participant.equals(null));
         Assert.assertFalse(participant.equals(participant2));
     }
 

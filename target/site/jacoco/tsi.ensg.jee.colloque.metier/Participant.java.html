@@ -48,50 +48,50 @@ public class Participant {
 <span class="fc" id="L48">        this.observations = observations;</span>
 <span class="fc" id="L49">    }</span>
 
-<span class="nc" id="L51">    public long getNumPerson() { return numPerson; }</span>
+<span class="fc" id="L51">    public long getNumPerson() { return numPerson; }</span>
 
-<span class="nc" id="L53">    public void setNumPerson(long numPerson) { this.numPerson = numPerson; }</span>
+<span class="fc" id="L53">    public void setNumPerson(long numPerson) { this.numPerson = numPerson; }</span>
 
 <span class="fc" id="L55">    public String getEmail() { return email; }</span>
 
-<span class="nc" id="L57">    public void setEmail(String email) { this.email = email; }</span>
+<span class="fc" id="L57">    public void setEmail(String email) { this.email = email; }</span>
 
 <span class="fc" id="L59">    public String getBirthDate() { return birthDate; }</span>
 
-<span class="nc" id="L61">    public void setBirthDate(String birthDate) { this.birthDate = birthDate; }</span>
+<span class="fc" id="L61">    public void setBirthDate(String birthDate) { this.birthDate = birthDate; }</span>
 
 <span class="fc" id="L63">    public String getOrganisation() { return organisation; }</span>
 
-<span class="nc" id="L65">    public void setOrganisation(String organisation) { this.organisation = organisation; }</span>
+<span class="fc" id="L65">    public void setOrganisation(String organisation) { this.organisation = organisation; }</span>
 
 <span class="fc" id="L67">    public String getObservations() { return observations; }</span>
 
-<span class="nc" id="L69">    public void setObservations(String observations) { this.observations = observations; }</span>
+<span class="fc" id="L69">    public void setObservations(String observations) { this.observations = observations; }</span>
 
 <span class="fc" id="L71">    public String getFirstName() { return firstName; }</span>
 
 <span class="fc" id="L73">    public String getLastName() { return lastName; }</span>
 
-<span class="nc" id="L75">    public void setFirstName(String firstName) { this.firstName = firstName; }</span>
+<span class="fc" id="L75">    public void setFirstName(String firstName) { this.firstName = firstName; }</span>
 
-<span class="nc" id="L77">    public void setLastName(String lastName) { this.lastName = lastName; }</span>
+<span class="fc" id="L77">    public void setLastName(String lastName) { this.lastName = lastName; }</span>
 
     @Override
     public boolean equals(Object o) {
-<span class="nc bnc" id="L81" title="All 2 branches missed.">        if (this == o) return true;</span>
-<span class="nc bnc" id="L82" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
-<span class="nc" id="L83">        Participant that = (Participant) o;</span>
-<span class="nc bnc" id="L84" title="All 14 branches missed.">        return numPerson == that.numPerson &amp;&amp; firstName.equals(that.firstName) &amp;&amp; lastName.equals(that.lastName) &amp;&amp; email.equals(that.email) &amp;&amp; birthDate.equals(that.birthDate) &amp;&amp; organisation.equals(that.organisation) &amp;&amp; observations.equals(that.observations);</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="fc bfc" id="L82" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L83">        Participant that = (Participant) o;</span>
+<span class="pc bpc" id="L84" title="6 of 14 branches missed.">        return numPerson == that.numPerson &amp;&amp; firstName.equals(that.firstName) &amp;&amp; lastName.equals(that.lastName) &amp;&amp; email.equals(that.email) &amp;&amp; birthDate.equals(that.birthDate) &amp;&amp; organisation.equals(that.organisation) &amp;&amp; observations.equals(that.observations);</span>
     }
 
     @Override
     public int hashCode() {
-<span class="nc" id="L89">        return Objects.hash(numPerson, firstName, lastName, email, birthDate, organisation, observations);</span>
+<span class="fc" id="L89">        return Objects.hash(numPerson, firstName, lastName, email, birthDate, organisation, observations);</span>
     }
 
     @Override
     public String toString() {
-<span class="nc" id="L94">        return &quot;Participant{&quot; +</span>
+<span class="fc" id="L94">        return &quot;Participant{&quot; +</span>
                 &quot;numPerson=&quot; + numPerson +
                 &quot;, firstName='&quot; + firstName + '\'' +
                 &quot;, lastName='&quot; + lastName + '\'' +

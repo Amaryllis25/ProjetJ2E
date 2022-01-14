@@ -1,8 +1,8 @@
-C:\Users\Formation\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\metier\Evenement.java
-C:\Users\Formation\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\metier\Participant.java
-C:\Users\Formation\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\services\EvenementDao.java
-C:\Users\Formation\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\services\ParticipantDao.java
-C:\Users\Formation\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\session\Application.java
-C:\Users\Formation\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\services\IntervenantDao.java
-C:\Users\Formation\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\metier\Intervenant.java
-C:\Users\Formation\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\session\HibernateUtils.java
+D:\M2\Projets\J2EE\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\metier\Intervenant.java
+D:\M2\Projets\J2EE\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\metier\Evenement.java
+D:\M2\Projets\J2EE\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\services\EvenementDao.java
+D:\M2\Projets\J2EE\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\services\IntervenantDao.java
+D:\M2\Projets\J2EE\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\session\Application.java
+D:\M2\Projets\J2EE\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\metier\Participant.java
+D:\M2\Projets\J2EE\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\services\ParticipantDao.java
+D:\M2\Projets\J2EE\ProjetJ2E\src\main\java\tsi\ensg\jee\colloque\session\HibernateUtils.java
