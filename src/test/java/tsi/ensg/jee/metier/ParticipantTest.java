@@ -20,5 +20,9 @@ public class ParticipantTest {
                                                 "25/06/1999", "ENSG", "Fan d'Undertale");
         Assert.assertEquals("Amaryllis", participant.getFirstName());
         Assert.assertEquals("Vignaud", participant.getLastName());
+        Assert.assertEquals("avignaud@gateau.fr", participant.getEmail());
+        Assert.assertEquals("25/06/1999", participant.getBirthDate());
+        Assert.assertEquals("ENSG", participant.getOrganisation());
+        Assert.assertEquals("Fan d'Undertale", participant.getObservations());
     }
 }
