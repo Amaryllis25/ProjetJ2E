@@ -40,84 +40,84 @@ public class Evenement {
     @Column(nullable = false)
     private String typeEvent;
 
-<span class="nc" id="L43">    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)</span>
+<span class="fc" id="L43">    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)</span>
     @JoinColumn(name = &quot;num_person&quot;)
     private List&lt;Participant&gt; participants = new ArrayList&lt;Participant&gt;();
 
-<span class="nc" id="L47">    public Evenement() {</span>
-<span class="nc" id="L48">    }</span>
+<span class="fc" id="L47">    public Evenement() {</span>
+<span class="fc" id="L48">    }</span>
 
     public Evenement(String title, String theme, String beginDate,
                      int duration, int nbPartMax, String description,
-<span class="nc" id="L52">                     String organisator, String typeEvent) {</span>
-<span class="nc" id="L53">        this.title = title;</span>
-<span class="nc" id="L54">        this.theme = theme;</span>
-<span class="nc" id="L55">        this.beginDate = beginDate;</span>
-<span class="nc" id="L56">        this.duration = duration;</span>
-<span class="nc" id="L57">        this.nbPartMax = nbPartMax;</span>
-<span class="nc" id="L58">        this.description = description;</span>
-<span class="nc" id="L59">        this.organisator = organisator;</span>
-<span class="nc" id="L60">        this.typeEvent = typeEvent;</span>
-<span class="nc" id="L61">    }</span>
+<span class="fc" id="L52">                     String organisator, String typeEvent) {</span>
+<span class="fc" id="L53">        this.title = title;</span>
+<span class="fc" id="L54">        this.theme = theme;</span>
+<span class="fc" id="L55">        this.beginDate = beginDate;</span>
+<span class="fc" id="L56">        this.duration = duration;</span>
+<span class="fc" id="L57">        this.nbPartMax = nbPartMax;</span>
+<span class="fc" id="L58">        this.description = description;</span>
+<span class="fc" id="L59">        this.organisator = organisator;</span>
+<span class="fc" id="L60">        this.typeEvent = typeEvent;</span>
+<span class="fc" id="L61">    }</span>
 
-<span class="nc" id="L63">    public long getNumEvent() { return numEvent; }</span>
+<span class="fc" id="L63">    public long getNumEvent() { return numEvent; }</span>
 
-<span class="nc" id="L65">    public void setNumEvent(long numEvent) { this.numEvent = numEvent; }</span>
+<span class="fc" id="L65">    public void setNumEvent(long numEvent) { this.numEvent = numEvent; }</span>
 
-<span class="nc" id="L67">    public String getTitle() { return title; }</span>
+<span class="fc" id="L67">    public String getTitle() { return title; }</span>
 
-<span class="nc" id="L69">    public void setTitle(String title) { this.title = title; }</span>
+<span class="fc" id="L69">    public void setTitle(String title) { this.title = title; }</span>
 
-<span class="nc" id="L71">    public String getTheme() { return theme; }</span>
+<span class="fc" id="L71">    public String getTheme() { return theme; }</span>
 
-<span class="nc" id="L73">    public void setTheme(String theme) { this.theme = theme; }</span>
+<span class="fc" id="L73">    public void setTheme(String theme) { this.theme = theme; }</span>
 
-<span class="nc" id="L75">    public String getBeginDate() { return beginDate; }</span>
+<span class="fc" id="L75">    public String getBeginDate() { return beginDate; }</span>
 
-<span class="nc" id="L77">    public void setBeginDate(String beginDate) { this.beginDate = beginDate; }</span>
+<span class="fc" id="L77">    public void setBeginDate(String beginDate) { this.beginDate = beginDate; }</span>
 
-<span class="nc" id="L79">    public int getDuration() { return duration; }</span>
+<span class="fc" id="L79">    public int getDuration() { return duration; }</span>
 
-<span class="nc" id="L81">    public void setDuration(int duration) { this.duration = duration; }</span>
+<span class="fc" id="L81">    public void setDuration(int duration) { this.duration = duration; }</span>
 
-<span class="nc" id="L83">    public int getNbPartMax() { return nbPartMax; }</span>
+<span class="fc" id="L83">    public int getNbPartMax() { return nbPartMax; }</span>
 
-<span class="nc" id="L85">    public void setNbPartMax(int nbPartMax) { this.nbPartMax = nbPartMax; }</span>
+<span class="fc" id="L85">    public void setNbPartMax(int nbPartMax) { this.nbPartMax = nbPartMax; }</span>
 
-<span class="nc" id="L87">    public String getDescription() { return description; }</span>
+<span class="fc" id="L87">    public String getDescription() { return description; }</span>
 
-<span class="nc" id="L89">    public void setDescription(String description) { this.description = description; }</span>
+<span class="fc" id="L89">    public void setDescription(String description) { this.description = description; }</span>
 
-<span class="nc" id="L91">    public String getOrganisator() { return organisator; }</span>
+<span class="fc" id="L91">    public String getOrganisator() { return organisator; }</span>
 
-<span class="nc" id="L93">    public void setOrganisator(String organisator) { this.organisator = organisator; }</span>
+<span class="fc" id="L93">    public void setOrganisator(String organisator) { this.organisator = organisator; }</span>
 
-<span class="nc" id="L95">    public String getTypeEvent() { return typeEvent; }</span>
+<span class="fc" id="L95">    public String getTypeEvent() { return typeEvent; }</span>
 
-<span class="nc" id="L97">    public void setTypeEvent(String typeEvent) { this.typeEvent = typeEvent; }</span>
+<span class="fc" id="L97">    public void setTypeEvent(String typeEvent) { this.typeEvent = typeEvent; }</span>
 
-<span class="nc" id="L99">    public List&lt;Participant&gt; getParticipants() { return participants; }</span>
+<span class="fc" id="L99">    public List&lt;Participant&gt; getParticipants() { return participants; }</span>
 
-<span class="nc" id="L101">    public void setParticipants(List&lt;Participant&gt; participants) { this.participants = participants; }</span>
+<span class="fc" id="L101">    public void setParticipants(List&lt;Participant&gt; participants) { this.participants = participants; }</span>
 
-<span class="nc" id="L103">    public void addParticpant(Participant participant) { this.participants.add(participant); }</span>
+<span class="fc" id="L103">    public void addParticipant(Participant participant) { this.participants.add(participant); }</span>
 
     @Override
     public boolean equals(Object o) {
-<span class="nc bnc" id="L107" title="All 2 branches missed.">        if (this == o) return true;</span>
-<span class="nc bnc" id="L108" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
-<span class="nc" id="L109">        Evenement evenement = (Evenement) o;</span>
-<span class="nc bnc" id="L110" title="All 20 branches missed.">        return numEvent == evenement.numEvent &amp;&amp; duration == evenement.duration &amp;&amp; nbPartMax == evenement.nbPartMax &amp;&amp; title.equals(evenement.title) &amp;&amp; theme.equals(evenement.theme) &amp;&amp; beginDate.equals(evenement.beginDate) &amp;&amp; description.equals(evenement.description) &amp;&amp; organisator.equals(evenement.organisator) &amp;&amp; typeEvent.equals(evenement.typeEvent) &amp;&amp; participants.equals(evenement.participants);</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="fc bfc" id="L108" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L109">        Evenement evenement = (Evenement) o;</span>
+<span class="pc bpc" id="L110" title="9 of 20 branches missed.">        return numEvent == evenement.numEvent &amp;&amp; duration == evenement.duration &amp;&amp; nbPartMax == evenement.nbPartMax &amp;&amp; title.equals(evenement.title) &amp;&amp; theme.equals(evenement.theme) &amp;&amp; beginDate.equals(evenement.beginDate) &amp;&amp; description.equals(evenement.description) &amp;&amp; organisator.equals(evenement.organisator) &amp;&amp; typeEvent.equals(evenement.typeEvent) &amp;&amp; participants.equals(evenement.participants);</span>
     }
 
     @Override
     public int hashCode() {
-<span class="nc" id="L115">        return Objects.hash(numEvent, title, theme, beginDate, duration, nbPartMax, description, organisator, typeEvent, participants);</span>
+<span class="fc" id="L115">        return Objects.hash(numEvent, title, theme, beginDate, duration, nbPartMax, description, organisator, typeEvent, participants);</span>
     }
 
     @Override
     public String toString() {
-<span class="nc" id="L120">        return &quot;Evenement{&quot; +</span>
+<span class="fc" id="L120">        return &quot;Evenement{&quot; +</span>
                 &quot;numEvent=&quot; + numEvent +
                 &quot;, title='&quot; + title + '\'' +
                 &quot;, theme='&quot; + theme + '\'' +

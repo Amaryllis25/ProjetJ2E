@@ -42,7 +42,7 @@ public class EvenementDao {
 
     public boolean update(long id, Participant participant) {
         Evenement evenementToUpdate = this.get(id);
-        evenementToUpdate.addParticpant(participant);
+        evenementToUpdate.addParticipant(participant);
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.merge(evenementToUpdate);
