@@ -17,7 +17,7 @@ public class Application {
 
         long forum = daoEvent.create("Forum des entreprises", "stage",
                 "22/11/20221", 160, 143,
-                "Entreprise", "AAE",  "Pro");
+                "Entreprise forum", "AAE",  "Pro");
 
         long boby = daoPart.create("Boby", "Lapointe",
                 "boby.lapointe@jgv.com", "10/01/1975",
