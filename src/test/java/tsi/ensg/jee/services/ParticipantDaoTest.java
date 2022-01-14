@@ -9,7 +9,7 @@ import tsi.ensg.jee.colloque.services.ParticipantDao;
 import static org.junit.Assert.assertNotNull;
 
 public class ParticipantDaoTest {
-
+/*
     @Test
     public void testDefaultConstructor() {
         ParticipantDao participantDao = new ParticipantDao();
