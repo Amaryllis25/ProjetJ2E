@@ -1,69 +1,32 @@
 package tsi.ensg.jee.colloque.services;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tsi.ensg.jee.colloque.metier.Intervenant;
-import tsi.ensg.jee.colloque.metier.Participant;
-import tsi.ensg.jee.colloque.session.HibernateUtils;
+import tsi.ensg.jee.colloque.repositories.IntervenantRepo;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class IntervenantDao{
 
-    private final SessionFactory sessionFactory = HibernateUtils.createSessionFactory();
+    @Autowired
+    private IntervenantRepo repository;
 
-    public IntervenantDao() {
+    public List<Intervenant> findAll() {
+        List<Intervenant> intervenants = (List<Intervenant>) repository.findAll();
+        return intervenants;
     }
 
-    public long create(String firstName, String lastName, String email,
-                       String birth_date, String organisation,
-                       String observations, String numTel, String function) {
-        Intervenant intervenant = new Intervenant(firstName, lastName, email,
-                    birth_date, organisation, observations,
-                    numTel, function);
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.persist(intervenant);
-        session.getTransaction().commit();
-        session.close();
-        return intervenant.getNumPerson();
+    public void save(Intervenant intervenant) {  // pas testé avec persist !
+        repository.save(intervenant);
     }
 
-    public boolean delete(long id) {
-        Intervenant intervenantToDelete = this.get(id);
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.delete(intervenantToDelete);
-        session.getTransaction().commit();
-        session.close();
-        return true;
+    public Optional<Intervenant> findById(Long id) {
+        return repository.findById(id);
     }
 
-    public boolean update(long id) {
-        Intervenant intervenantToUpdate = this.get(id);
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.merge(intervenantToUpdate);
-        session.getTransaction().commit();
-        session.close();
-        return true;
-    }
-
-    public Intervenant get(long id) {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        Intervenant result = session.get(Intervenant.class, id);
-        session.getTransaction().commit();
-        session.close();
-        return result;
-    }
-
-    public List<Intervenant> getAll() {
-        Session session = sessionFactory.openSession();
-        List<Intervenant> result = session.createQuery("from Intervenant").list();
-        session.close();
-        return result;
+    public void delete(Intervenant intervenant) {
+        repository.delete(intervenant);
     }
 }

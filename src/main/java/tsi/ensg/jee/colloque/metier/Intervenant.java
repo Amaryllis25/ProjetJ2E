@@ -3,9 +3,11 @@ package tsi.ensg.jee.colloque.metier;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
+@Table(name="intervenant")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Intervenant extends Participant {
 
