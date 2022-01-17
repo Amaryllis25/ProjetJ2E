@@ -1,4 +1,4 @@
-package tsi.ensg.jee.colloque.session;
+package tsi.ensg.jee.colloque;
 
 import tsi.ensg.jee.colloque.metier.Participant;
 import tsi.ensg.jee.colloque.services.EvenementDao;

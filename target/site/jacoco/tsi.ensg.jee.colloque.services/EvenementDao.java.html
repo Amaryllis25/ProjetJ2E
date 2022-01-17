@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EvenementDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjetJ2E</a> &gt; <a href="index.source.html" class="el_package">tsi.ensg.jee.colloque.services</a> &gt; <span class="el_source">EvenementDao.java</span></div><h1>EvenementDao.java</h1><pre class="source lang-java linenums">package tsi.ensg.jee.colloque.services;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import tsi.ensg.jee.colloque.metier.Evenement;
+import tsi.ensg.jee.colloque.metier.Participant;
+import tsi.ensg.jee.colloque.session.HibernateUtils;
+
+import java.util.Date;
+import java.util.List;
+
+public class EvenementDao {
+
+<span class="nc" id="L14">    private final SessionFactory sessionFactory = HibernateUtils.createSessionFactory();</span>
+
+<span class="nc" id="L16">    public EvenementDao() {</span>
+<span class="nc" id="L17">    }</span>
+
+    public long create(String title, String theme, String beginDate,
+                       int duration, int nbPartMax, String description,
+                       String organisator, String typeEvent) {
+<span class="nc" id="L22">        Evenement evenement = new Evenement(title, theme, beginDate,</span>
+                        duration, nbPartMax, description,
+                        organisator, typeEvent);
+<span class="nc" id="L25">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L26">        session.beginTransaction();</span>
+<span class="nc" id="L27">        session.persist(evenement);</span>
+<span class="nc" id="L28">        session.getTransaction().commit();</span>
+<span class="nc" id="L29">        session.close();</span>
+<span class="nc" id="L30">        return evenement.getNumEvent();</span>
+    }
+
+    public boolean delete(long id) {
+<span class="nc" id="L34">        Evenement evenementToDelete = this.get(id);</span>
+<span class="nc" id="L35">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L36">        session.beginTransaction();</span>
+<span class="nc" id="L37">        session.delete(evenementToDelete);</span>
+<span class="nc" id="L38">        session.getTransaction().commit();</span>
+<span class="nc" id="L39">        session.close();</span>
+<span class="nc" id="L40">        return true;</span>
+    }
+
+    public boolean update(long id, Evenement evenement) {
+<span class="nc" id="L44">        Evenement evenementToUpdate = evenement;</span>
+<span class="nc" id="L45">        evenementToUpdate.setNumEvent(id);</span>
+<span class="nc" id="L46">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L47">        session.beginTransaction();</span>
+<span class="nc" id="L48">        session.merge(evenementToUpdate);</span>
+<span class="nc" id="L49">        session.getTransaction().commit();</span>
+<span class="nc" id="L50">        session.close();</span>
+<span class="nc" id="L51">        return true;</span>
+    }
+
+    public boolean update(long id, Participant participant) {
+<span class="nc" id="L55">        Evenement evenementToUpdate = this.get(id);</span>
+<span class="nc" id="L56">        evenementToUpdate.addParticipant(participant);</span>
+<span class="nc" id="L57">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L58">        session.beginTransaction();</span>
+<span class="nc" id="L59">        session.merge(evenementToUpdate);</span>
+<span class="nc" id="L60">        session.getTransaction().commit();</span>
+<span class="nc" id="L61">        session.close();</span>
+<span class="nc" id="L62">        return true;</span>
+    }
+
+    public Evenement get(long id) {
+<span class="nc" id="L66">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L67">        session.beginTransaction();</span>
+<span class="nc" id="L68">        Evenement result = session.get(Evenement.class, id);</span>
+<span class="nc" id="L69">        session.getTransaction().commit();</span>
+<span class="nc" id="L70">        session.close();</span>
+<span class="nc" id="L71">        return result;</span>
+    }
+
+    public List&lt;Evenement&gt; getAll() {
+<span class="nc" id="L75">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L76">        List&lt;Evenement&gt; result = session.createQuery(&quot;from Evenement&quot;).list();</span>
+<span class="nc" id="L77">        session.close();</span>
+<span class="nc" id="L78">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
