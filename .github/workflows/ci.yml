@@ -24,7 +24,7 @@ jobs:
       - name: Create timetable database
         run: |
           sudo -u postgres createdb --owner=test test
-          PGPASSWORD=somestrong psql --username=scheduler --host=localhost --list test
+          PGPASSWORD=somestrong psql --username=test --host=localhost --list test
   build:
     needs: setup-postgresql-ubuntu
     runs-on: ubuntu-20.04
