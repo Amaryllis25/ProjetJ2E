@@ -28,7 +28,7 @@ public class ParticipantDaoTest {
 
         Assert.assertEquals(participant, participantDao.get(p1));
     }
-/*
+
     @Test
     public void testDeleteMethod() {
         ParticipantDao participantDao = new ParticipantDao();
@@ -60,5 +60,5 @@ public class ParticipantDaoTest {
         participantDao.update(p1, participant);
 
         Assert.assertEquals("Pokemon", participantDao.get(p1).getOrganisation());
-    }*/
+    }
 }
