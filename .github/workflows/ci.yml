@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - init_tests
+      - dev
       - fix_tests
   pull_request:
     branches:
