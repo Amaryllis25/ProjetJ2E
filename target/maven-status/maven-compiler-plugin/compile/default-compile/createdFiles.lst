@@ -1,8 +1,11 @@
+tsi\ensg\jee\colloque\controller\IntervenantController.class
+tsi\ensg\jee\colloque\controller\ParticipantController.class
 tsi\ensg\jee\colloque\services\EvenementDao.class
 tsi\ensg\jee\colloque\metier\Evenement.class
+tsi\ensg\jee\colloque\Application.class
 tsi\ensg\jee\colloque\metier\Intervenant.class
 tsi\ensg\jee\colloque\metier\Participant.class
 tsi\ensg\jee\colloque\services\IntervenantDao.class
-tsi\ensg\jee\colloque\session\Application.class
+tsi\ensg\jee\colloque\controller\EvenementController.class
 tsi\ensg\jee\colloque\session\HibernateUtils.class
 tsi\ensg\jee\colloque\services\ParticipantDao.class
