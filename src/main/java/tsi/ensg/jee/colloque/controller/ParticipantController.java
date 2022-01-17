@@ -16,8 +16,7 @@ public class ParticipantController {
     @GetMapping("/participants")
     public String getParticipant(Model model) {
         Participant participant = new Participant("CMA", "Alla", "@", "06/12/99", "a", "b");
-        //ParticipantDao participants = new ParticipantDao();
-        //participants.save(part);
+        //participantDao.save(part);
         model.addAttribute("participants",participant); // Ajout au modèle
         return "participant"; //Envoi vers la vue
     }
