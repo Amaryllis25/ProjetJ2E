@@ -1,7 +1,7 @@
-D:\M2\Projets\J2EE\ProjetJ2E\src\test\java\tsi\ensg\jee\services\IntervenantDaoTest.java
-D:\M2\Projets\J2EE\ProjetJ2E\src\test\java\tsi\ensg\jee\metier\IntervenantTest.java
-D:\M2\Projets\J2EE\ProjetJ2E\src\test\java\tsi\ensg\jee\services\ParticipantDaoTest.java
-D:\M2\Projets\J2EE\ProjetJ2E\src\test\java\tsi\ensg\jee\services\EvenementDaoTest.java
-D:\M2\Projets\J2EE\ProjetJ2E\src\test\java\tsi\ensg\jee\session\HibernateUtilsTest.java
-D:\M2\Projets\J2EE\ProjetJ2E\src\test\java\tsi\ensg\jee\metier\ParticipantTest.java
-D:\M2\Projets\J2EE\ProjetJ2E\src\test\java\tsi\ensg\jee\metier\EvenementTest.java
+D:\M2\Projets\J2EE_rebase\ProjetJ2E\src\test\java\tsi\ensg\jee\metier\ParticipantTest.java
+D:\M2\Projets\J2EE_rebase\ProjetJ2E\src\test\java\tsi\ensg\jee\services\EvenementDaoTest.java
+D:\M2\Projets\J2EE_rebase\ProjetJ2E\src\test\java\tsi\ensg\jee\metier\EvenementTest.java
+D:\M2\Projets\J2EE_rebase\ProjetJ2E\src\test\java\tsi\ensg\jee\session\HibernateUtilsTest.java
+D:\M2\Projets\J2EE_rebase\ProjetJ2E\src\test\java\tsi\ensg\jee\services\ParticipantDaoTest.java
+D:\M2\Projets\J2EE_rebase\ProjetJ2E\src\test\java\tsi\ensg\jee\metier\IntervenantTest.java
+D:\M2\Projets\J2EE_rebase\ProjetJ2E\src\test\java\tsi\ensg\jee\services\IntervenantDaoTest.java
