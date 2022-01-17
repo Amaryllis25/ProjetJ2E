@@ -36,8 +36,9 @@ public class ParticipantDao {
         return true;
     }
 
-    public boolean update(long id) {
-        Participant participantToUpdate = this.get(id);
+    public boolean update(long id, Participant participant) {
+        Participant participantToUpdate = participant;
+        participantToUpdate.setNumPerson(id);
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.merge(participantToUpdate);
@@ -46,7 +47,7 @@ public class ParticipantDao {
         return true;
     }
 
-        public Participant get(long id) {
+    public Participant get(long id) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         Participant result = session.get(Participant.class, id);

@@ -40,9 +40,20 @@ public class EvenementDao {
         return true;
     }
 
+    public boolean update(long id, Evenement evenement) {
+        Evenement evenementToUpdate = evenement;
+        evenementToUpdate.setNumEvent(id);
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.merge(evenementToUpdate);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
     public boolean update(long id, Participant participant) {
         Evenement evenementToUpdate = this.get(id);
-        evenementToUpdate.addParticpant(participant);
+        evenementToUpdate.addParticipant(participant);
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.merge(evenementToUpdate);

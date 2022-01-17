@@ -100,7 +100,7 @@ public class Evenement {
 
     public void setParticipants(List<Participant> participants) { this.participants = participants; }
 
-    public void addParticpant(Participant participant) { this.participants.add(participant); }
+    public void addParticipant(Participant participant) { this.participants.add(participant); }
 
     @Override
     public boolean equals(Object o) {
