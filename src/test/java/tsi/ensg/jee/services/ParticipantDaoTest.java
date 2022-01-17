@@ -15,7 +15,7 @@ public class ParticipantDaoTest {
         ParticipantDao participantDao = new ParticipantDao();
         assertNotNull(participantDao);
     }
-    
+
     @Test
     public void testCreateMethod() {
         ParticipantDao participantDao = new ParticipantDao();
