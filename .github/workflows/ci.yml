@@ -48,5 +48,16 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '13'
+      - name: Start PostgreSQL on Ubuntu
+        run: |
+          sudo systemctl start postgresql.service
+          pg_isready
+      - name: Create test user
+        run: |
+          sudo -u postgres psql --command="CREATE USER test PASSWORD 'test'" --command="\du"
+      - name: Create test database
+        run: |
+          sudo -u postgres createdb --owner=test test
+          PGPASSWORD=test psql --username=test --host=localhost --list test
       - name: Verify tests
         run: mvn clean verify
