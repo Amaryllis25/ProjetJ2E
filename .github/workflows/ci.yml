@@ -18,13 +18,13 @@ jobs:
         run: |
           sudo systemctl start postgresql.service
           pg_isready
-      - name: Create scheduler user
+      - name: Create test user
         run: |
           sudo -u postgres psql --command="CREATE USER test PASSWORD 'test'" --command="\du"
-      - name: Create timetable database
+      - name: Create test database
         run: |
           sudo -u postgres createdb --owner=test test
-          PGPASSWORD=somestrong psql --username=test --host=localhost --list test
+          PGPASSWORD=test psql --username=test --host=localhost --list test
   build:
     needs: setup-postgresql-ubuntu
     runs-on: ubuntu-20.04
