@@ -26,7 +26,7 @@ jobs:
           sudo -u postgres createdb --owner=scheduler test
           PGPASSWORD=somestrong psql --username=scheduler --host=localhost --list test
   build:
-    needs: setup-postgres-ubuntu
+    needs: setup-postgresql-ubuntu
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
