@@ -23,7 +23,7 @@ jobs:
           sudo -u postgres psql --command="CREATE USER test PASSWORD 'test'" --command="\du"
       - name: Create timetable database
         run: |
-          sudo -u postgres createdb --owner=scheduler test
+          sudo -u postgres createdb --owner=test test
           PGPASSWORD=somestrong psql --username=scheduler --host=localhost --list test
   build:
     needs: setup-postgresql-ubuntu
@@ -40,6 +40,7 @@ jobs:
           name: ProjetJ2E
           path: ./target/ProjetJ2E.jar
   tests:
+    needs: setup-postgresql-ubuntu
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
