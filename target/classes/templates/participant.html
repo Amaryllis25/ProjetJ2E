@@ -6,7 +6,7 @@
 </head>
 <body>
     <p th:text="'Hello, ' + ${participant.firstName} + '!'" />
-    <tr th:if="${participant.empty}">
+    <tr th:if="${participant != null}">
         <td colspan="2"> Pas de participant </td>
     </tr>
 </body>
