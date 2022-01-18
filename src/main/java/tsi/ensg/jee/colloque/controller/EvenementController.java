@@ -24,7 +24,7 @@ public class EvenementController {
         return "evenement";
     }
 
-    @GetMapping("/participant/{num_even}")
+    @GetMapping("/evenement/{num_even}")
     public String getEvenement(Model model, @PathVariable Long num_even) {
         if (evenementDao.findById(num_even).isPresent()){
             Evenement evenement = evenementDao.findById(num_even).get();
