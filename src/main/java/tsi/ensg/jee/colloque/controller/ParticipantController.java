@@ -3,8 +3,10 @@ package tsi.ensg.jee.colloque.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import tsi.ensg.jee.colloque.metier.Participant;
 import tsi.ensg.jee.colloque.services.ParticipantDao;
 
@@ -49,4 +51,10 @@ public class ParticipantController {
     public String createParticipant(Model model) {
         return "createParticipant"; //Envoi vers la vue
     }
+
+    @PutMapping("/participant/{num_person}")
+    public String updateParticipant(Model model, @PathVariable Long num_person) {return "participant";} //Envoi vers la vue
+
+    @DeleteMapping("/participant/{num_person}")
+    public String deleteParticipant(Model model, @PathVariable Long num_person) {return "participants";} //Envoi vers la vue
 }

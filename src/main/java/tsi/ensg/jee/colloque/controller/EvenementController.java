@@ -3,8 +3,10 @@ package tsi.ensg.jee.colloque.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import tsi.ensg.jee.colloque.metier.Evenement;
 import tsi.ensg.jee.colloque.metier.Participant;
 import tsi.ensg.jee.colloque.services.EvenementDao;
@@ -33,4 +35,10 @@ public class EvenementController {
         }
         return "evenement"; //Envoi vers la vue
     }
+
+    @PutMapping("/evenement/{num_even}")
+    public String updateEvenement(Model model, @PathVariable Long num_even) {return "evenement";} //Envoi vers la vue
+
+    @DeleteMapping("/evenement/{num_even}")
+    public String deleteEvenement(Model model, @PathVariable Long num_even) {return "evenement";} //Envoi vers la vue*/
 }
