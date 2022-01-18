@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Colloque</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <form action="#" th:action="@{/participants}" th:object="${form}"
+        method="post">
+        <fieldset>
+            <input type="submit" id="submitButton" th:value="Save">
+            <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
+
+            <input th:field="participants.firstName" />
+            <input th:field="participants.lastName" />
+
+        </fieldset>
+    </form>
+
+</body>
+</html>
