@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Colloque</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<form action="#" th:action="@{/editParticipant}" th:object="${participant}" method="post" modelAttribute="participant">
+    <div>
+        <div>
+            <span>FirstName</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{firstName} th:value="${participant.getFirstName()}"/>
+    </div>
+    <div>
+        <div>
+            <span>LastName</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{lastName} th:value="${participant.getLastName()}"/>
+    </div>
+    <div>
+        <div>
+            <span>Email</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{email} th:value="${participant.getEmail()}"/>
+    </div>
+    <div>
+        <div>
+            <span>BirthDate</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{birthDate} th:value="${participant.getBirthDate()}"/>
+    </div>
+    <div>
+        <div>
+            <span>Organisation</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{organisation} th:value="${participant.getOrganisation()}"/>
+    </div>
+    <div>
+        <div>
+            <span>Observations</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{observations} th:value="${participant.getObservations()}"/>
+    </div>
+
+    <input type="submit" id="submitButton" th:value="Save">
+    <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
+</form>
+</body>
+</html>
