@@ -23,4 +23,6 @@ public class ParticipantController {
         model.addAttribute("allParticipants",participantDao.findAll()); // Ajout au modèle
         return "participants"; //Envoi vers la vue
     }
+
+
 }
