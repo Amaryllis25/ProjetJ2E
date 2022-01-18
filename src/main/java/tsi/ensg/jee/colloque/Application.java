@@ -1,16 +1,16 @@
 package tsi.ensg.jee.colloque;
 
-import tsi.ensg.jee.colloque.metier.Participant;
-import tsi.ensg.jee.colloque.services.EvenementDao;
-import tsi.ensg.jee.colloque.services.IntervenantDao;
-import tsi.ensg.jee.colloque.services.ParticipantDao;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Date;
-import java.util.List;
-
+@SpringBootApplication
 public class Application {
 
     public static void main(String[] args) {
+
+        SpringApplication.run(Application.class, args);
+
+        /*
         EvenementDao daoEvent = new EvenementDao();
         ParticipantDao daoPart = new ParticipantDao();
         IntervenantDao daoInter = new IntervenantDao();
@@ -49,5 +49,6 @@ public class Application {
         System.out.println(daoEvent.getAll());
 
         System.out.println(daoInter.getAll());
+         */
     }
 }
