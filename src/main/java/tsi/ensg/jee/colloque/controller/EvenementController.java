@@ -3,10 +3,7 @@ package tsi.ensg.jee.colloque.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 import tsi.ensg.jee.colloque.metier.Evenement;
 import tsi.ensg.jee.colloque.metier.Participant;
 import tsi.ensg.jee.colloque.services.EvenementDao;
@@ -34,6 +31,24 @@ public class EvenementController {
             model.addAttribute("evenement", evenement); // Ajout au modèle
         }
         return "evenement"; //Envoi vers la vue
+    }
+
+    @GetMapping("/createEvenForm")
+    public String createEvenement(Model model) {
+        model.addAttribute("evenement", new Evenement()); // Ajout au modèle
+        return "createEvenForm";
+    }
+
+    @PostMapping("/createEvenForm")
+    public String AddEvenement(Model model) {
+        Evenement evenement = new Evenement();
+        return "createEvenForm";
+    }
+
+    @GetMapping("/evenements")
+    public String getEvenements(Model model) {
+        model.addAttribute("evenements",evenementDao.findAll()); // Ajout au modèle
+        return "evenements"; //Envoi vers la vue
     }
 
     @PutMapping("/evenement/{num_even}")

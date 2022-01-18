@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Colloque</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<form action="#" th:action="@{/createEvenement}" th:object="${evenement}" method="post">
+    <div>
+        <div>
+            <span>Titre</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{title}"/>
+    </div>
+    <div>
+        <div>
+            <span>Theme</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{theme}"/>
+    </div>
+    <div>
+        <div>
+            <span>Date de début</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{beginDate}"/>
+    </div>
+    <div>
+        <div>
+            <span>Duree</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{duration}"/>
+    </div>
+    <div>
+        <div>
+            <span>Nombre de participants maximum</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{nbPartMax}"/>
+    </div>
+    <div>
+        <div>
+            <span>Description</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{description}"/>
+    </div>
+    <div>
+        <div>
+            <span>Organisateur</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{organisator}"/>
+    </div>
+    <div>
+        <div>
+            <span>Type d'evenement</span>
+        </div>
+        <input type="text" class="form-control" th:field="*{typeEvent}"/>
+    </div>
+    <input type="submit" id="submitButton" th:value="Save">
+    <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
+</form>
+</body>
+</html>
