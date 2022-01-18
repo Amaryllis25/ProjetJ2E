@@ -56,8 +56,14 @@ public class ParticipantController {
         return "redirect:/participants";
     }
 
+    @PostMapping("/editParticipant")
+    public String editParticipant(Model model, Participant participant) {
+        model.addAttribute("participant", participant);
+        return "editParticipant";
+    }
+
     @PutMapping("/participant/{num_person}")
-    public String updateParticipant(Model model, @PathVariable Long num_person) {return "participant";} //Envoi vers la vue
+    public String updateParticipant(Model model, @PathVariable Long num_person) {return "editParticipant";} //Envoi vers la vue
 
     @DeleteMapping("/participant/{num_person}")
     public String deleteParticipant(Model model, @PathVariable Long num_person) {return "participants";} //Envoi vers la vue
