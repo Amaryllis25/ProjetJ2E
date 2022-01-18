@@ -10,7 +10,14 @@
         <td colspan="2"> Aucun participants inscrit</td>
     </tr>
     <tr th:each="participant : ${allParticipants}">
-        <td><span th:text="${participant.firstName}"> Title </span></td>
+        <p>
+            <td><span th:text="${participant.firstName}"></span></td>
+            <td><span th:text="${participant.lastName}"></span></td>
+            <td><span th:text="${participant.email}"></span></td>
+            <td><span th:text="${participant.birthDate}"></span></td>
+            <td><span th:text="${participant.organisation}"></span></td>
+            <td><span th:text="${participant.observations}"></span></td>
+        </p>
     </tr>
 
 </body>
