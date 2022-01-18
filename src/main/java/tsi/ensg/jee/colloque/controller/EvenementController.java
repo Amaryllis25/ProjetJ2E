@@ -13,15 +13,6 @@ public class EvenementController {
     @Autowired
     EvenementDao evenementDao;
 
-    @GetMapping("/evenement")
-    public String create(Model model) {
-        Evenement evenement = new Evenement("Undertale party", "Undertale", "22/04/2022", 3,
-                100000, "Events for Undertale's fans", "Toby Fox", "Trailer");
-        evenementDao.save(evenement);
-        model.addAttribute("evenement", evenement); // Ajout au modèle
-        return "evenement";
-    }
-
     @GetMapping("/evenement/{num_even}")
     public String getEvenement(Model model, @PathVariable Long num_even) {
         if (evenementDao.findById(num_even).isPresent()){
