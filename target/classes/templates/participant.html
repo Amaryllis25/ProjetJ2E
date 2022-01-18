@@ -5,6 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p th:text="'Hello, ' + ${participants.firstName} + '!'" />
+    <p th:text="'Hello, ' + ${participant.firstName} + '!'" />
+    <tr th:if="${participant.empty}">
+        <td colspan="2"> Pas de participant </td>
+    </tr>
 </body>
 </html>
