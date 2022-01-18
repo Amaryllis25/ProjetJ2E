@@ -42,6 +42,7 @@ public class EvenementController {
     @PostMapping("/createEvenForm")
     public String addEvenement(Model model, @ModelAttribute("evenement") Evenement evenement) {
         model.addAttribute("evenement", evenement);
+        evenementDao.save(evenement);
         return "redirect:/evenements";
     }
 
