@@ -40,14 +40,14 @@ public class EvenementController {
     }
 
     @PostMapping("/createEvenForm")
-    public String AddEvenement(Model model) {
-        Evenement evenement = new Evenement();
-        return "createEvenForm";
+    public String addEvenement(Model model, @ModelAttribute("evenement") Evenement evenement) {
+        model.addAttribute("evenement", evenement);
+        return "redirect:/evenements";
     }
 
     @GetMapping("/evenements")
     public String getEvenements(Model model) {
-        model.addAttribute("evenements",evenementDao.findAll()); // Ajout au modèle
+        model.addAttribute("evenements", evenementDao.findAll()); // Ajout au modèle
         return "evenements"; //Envoi vers la vue
     }
 

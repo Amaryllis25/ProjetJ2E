@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action="#" th:action="@{/createEvenement}" th:object="${evenement}" method="post">
+<form action="#" th:action="@{/createEvenForm}" th:object="${evenement}" method="post" modelAttribute="evenement">
     <div>
         <div>
             <span>Titre</span>
@@ -29,13 +29,13 @@
         <div>
             <span>Duree</span>
         </div>
-        <input type="text" class="form-control" th:field="*{duration}"/>
+        <input type="number" class="form-control" th:field="*{duration}"/>
     </div>
     <div>
         <div>
             <span>Nombre de participants maximum</span>
         </div>
-        <input type="text" class="form-control" th:field="*{nbPartMax}"/>
+        <input type="number" class="form-control" th:field="*{nbPartMax}"/>
     </div>
     <div>
         <div>

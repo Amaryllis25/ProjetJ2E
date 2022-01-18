@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Colloque</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<tr th:if="${evenements.empty}">
+    <td colspan="2"> Aucun participants inscrit</td>
+</tr>
+<tr th:each="evenement : ${evenements}">
+    <p>
+    <td><span th:text="${evenements.title}"></span></td>
+    <td><span th:text="${evenements.theme}"></span></td>
+</tr>
+
+</body>
+</html>
