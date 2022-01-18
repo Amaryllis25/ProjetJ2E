@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Colloque</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <tr th:if="${allParticipants.empty}">
+        <td colspan="2"> Aucun participants inscrit</td>
+    </tr>
+    <tr th:each="participant : ${allParticipants}">
+        <td><span th:text="${participant.firstName}"> Title </span></td>
+    </tr>
+
+</body>
+</html>

@@ -13,11 +13,11 @@ public class ParticipantController {
     @Autowired
     ParticipantDao participantDao;
 
-    @GetMapping("/participants")
+    @GetMapping("/allParticipants")
     public String getParticipant(Model model) {
-        Participant participant = new Participant("CMA", "Alla", "@", "06/12/99", "a", "b");
+        //Participant part= new Participant("CMA", "Alla", "@", "06/12/99", "a", "b");
         //participantDao.save(part);
-        model.addAttribute("participants",participant); // Ajout au modèle
-        return "participant"; //Envoi vers la vue
+        model.addAttribute("allParticipants",participantDao.findAll()); // Ajout au modèle
+        return "participants"; //Envoi vers la vue
     }
 }
