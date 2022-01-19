@@ -45,9 +45,23 @@ public class Evenement {
     @JoinColumn(name = "num_person")
     private List<Participant> participants = new ArrayList<Participant>();
 
+    /**
+     * Default constructor of Evenement Class
+     */
     public Evenement() {
     }
 
+    /**
+     * Constructor of Evenement Class
+     * @param title title of the event
+     * @param theme theme of the event
+     * @param beginDate begin date of the event
+     * @param duration duration of the event
+     * @param nbPartMax number maximum of participants in the event
+     * @param description description of the event
+     * @param organisator organisator of the event
+     * @param typeEvent type of the event
+     */
     public Evenement(String title, String theme, String beginDate,
                      int duration, int nbPartMax, String description,
                      String organisator, String typeEvent) {
@@ -61,6 +75,9 @@ public class Evenement {
         this.typeEvent = typeEvent;
     }
 
+    /**
+     * All getters and setters of Evenement class
+     */
     public long getNumEvent() { return numEvent; }
 
     public void setNumEvent(long numEvent) { this.numEvent = numEvent; }
@@ -103,6 +120,11 @@ public class Evenement {
 
     public void addParticipant(Participant participant) { this.participants.add(participant); }
 
+    /**
+     * Function which verify if two object are the same
+     * @param o Object in entry
+     * @return true or false
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -111,11 +133,19 @@ public class Evenement {
         return numEvent == evenement.numEvent && duration == evenement.duration && nbPartMax == evenement.nbPartMax && title.equals(evenement.title) && theme.equals(evenement.theme) && beginDate.equals(evenement.beginDate) && description.equals(evenement.description) && organisator.equals(evenement.organisator) && typeEvent.equals(evenement.typeEvent) && participants.equals(evenement.participants);
     }
 
+    /**
+     * Function which calculate the hashcode of an object
+     * @return hashcode
+     */
     @Override
     public int hashCode() {
         return Objects.hash(numEvent, title, theme, beginDate, duration, nbPartMax, description, organisator, typeEvent, participants);
     }
 
+    /**
+     * Function which modify the print of the Evenement object
+     * @return String
+     */
     @Override
     public String toString() {
         return "Evenement{" +
