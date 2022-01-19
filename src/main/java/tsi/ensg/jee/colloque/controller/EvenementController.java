@@ -13,6 +13,23 @@ public class EvenementController {
     @Autowired
     EvenementDao evenementDao;
 
+    /**
+     * Function which get all events
+     * @param model the view
+     * @return View evenement.html
+     */
+    @GetMapping("/evenements")
+    public String getEvenements(Model model) {
+        model.addAttribute("evenements", evenementDao.findAll()); // Ajout au modèle
+        return "evenements"; //Envoi vers la vue
+    }
+
+    /**
+     * Function which get a event with its id
+     * @param model the view
+     * @param num_even the id of the event
+     * @return View evenement.html
+     */
     @GetMapping("/evenement/{num_even}")
     public String getEvenement(Model model, @PathVariable Long num_even) {
         if (evenementDao.findById(num_even).isPresent()){
@@ -22,12 +39,23 @@ public class EvenementController {
         return "evenement"; //Envoi vers la vue
     }
 
+    /**
+     * Function which get a event with its id
+     * @param model the view
+     * @return View createEvenForm.html
+     */
     @GetMapping("/createEvenForm")
     public String createEvenement(Model model) {
         model.addAttribute("evenement", new Evenement()); // Ajout au modèle
         return "createEvenForm";
     }
 
+    /**
+     * Function which send data event to evenements.html
+     * @param model the view
+     * @param evenement event to add
+     * @return View evenements.html
+     */
     @PostMapping("/createEvenForm")
     public String addEvenement(Model model, @ModelAttribute("evenement") Evenement evenement) {
         model.addAttribute("evenement", evenement);
@@ -35,15 +63,12 @@ public class EvenementController {
         return "redirect:/evenements";
     }
 
-    @GetMapping("/evenements")
-    public String getEvenements(Model model) {
-        model.addAttribute("evenements", evenementDao.findAll()); // Ajout au modèle
-        return "evenements"; //Envoi vers la vue
-    }
-
-    @PutMapping("/evenement/{num_even}")
-    public String updateEvenement(Model model, @PathVariable Long num_even) {return "evenement";} //Envoi vers la vue
-
+    /**
+     * Function which delete an event to evenements.html
+     * @param model the view
+     * @param num_even the id of the event
+     * @return View evenements.html
+     */
     @GetMapping("/deleteEvent/{num_even}")
     public String deleteEvenement(Model model, @PathVariable("num_even") Long num_even) {
         Evenement evenement = evenementDao.findById(num_even).get();
@@ -51,4 +76,12 @@ public class EvenementController {
         evenementDao.delete(evenement);
         return "redirect:/evenements";
     } //Envoi vers la vue*/
+
+    /**
+     * Function which update an event to evenement.html
+     * @param model the view
+     * @return View evenement.html
+     */
+    @PutMapping("/evenementUpdate/{num_even}")
+    public String updateEvenement(Model model, @PathVariable Long num_even) {return "evenement";} //Envoi vers la vue
 }
