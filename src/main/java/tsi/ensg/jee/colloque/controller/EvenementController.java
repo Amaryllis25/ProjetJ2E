@@ -44,9 +44,10 @@ public class EvenementController {
     @PutMapping("/evenement/{num_even}")
     public String updateEvenement(Model model, @PathVariable Long num_even) {return "evenement";} //Envoi vers la vue
 
-    @DeleteMapping("/evenements/{num_even}")
-    public String deleteEvenement(Model model, @PathVariable Long num_even) {
+    @GetMapping("/deleteEvent/{num_even}")
+    public String deleteEvenement(Model model, @PathVariable("num_even") Long num_even) {
         Evenement evenement = evenementDao.findById(num_even).get();
+        System.out.println("test");
         evenementDao.delete(evenement);
         return "redirect:/evenements";
     } //Envoi vers la vue*/
