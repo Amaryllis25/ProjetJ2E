@@ -27,13 +27,13 @@ public class EvenementController {
     /**
      * Function which get a event with its id
      * @param model the view
-     * @param num_even the id of the event
+     * @param numEvent the id of the event
      * @return View evenement.html
      */
-    @GetMapping("/evenement/{num_even}")
-    public String getEvenement(Model model, @PathVariable Long num_even) {
-        if (evenementDao.findById(num_even).isPresent()){
-            Evenement evenement = evenementDao.findById(num_even).get();
+    @GetMapping("/evenement/{numEvent}")
+    public String getEvenement(Model model, @PathVariable Long numEvent) {
+        if (evenementDao.findById(numEvent).isPresent()){
+            Evenement evenement = evenementDao.findById(numEvent).get();
             model.addAttribute("evenement", evenement); // Ajout au modèle
         }
         return "evenement"; //Envoi vers la vue
@@ -66,22 +66,22 @@ public class EvenementController {
     /**
      * Function which delete an event to evenements.html
      * @param model the view
-     * @param num_even the id of the event
+     * @param numEvent the id of the event
      * @return View evenements.html
      */
-    @GetMapping("/deleteEvent/{num_even}")
-    public String deleteEvenement(Model model, @PathVariable("num_even") Long num_even) {
-        Evenement evenement = evenementDao.findById(num_even).get();
+    @GetMapping("/deleteEvent/{numEvent}")
+    public String deleteEvenement(Model model, @PathVariable("numEvent") Long numEvent) {
+        Evenement evenement = evenementDao.findById(numEvent).get();
         System.out.println("test");
         evenementDao.delete(evenement);
         return "redirect:/evenements";
-    } //Envoi vers la vue*/
+    } //Envoi vers la vue
 
     /**
      * Function which update an event to evenement.html
      * @param model the view
      * @return View evenement.html
      */
-    @PutMapping("/evenementUpdate/{num_even}")
-    public String updateEvenement(Model model, @PathVariable Long num_even) {return "evenement";} //Envoi vers la vue
+    @PutMapping("/evenementUpdate/{numEvent}")
+    public String updateEvenement(Model model, @PathVariable Long numEvent) {return "evenement";} //Envoi vers la vue
 }

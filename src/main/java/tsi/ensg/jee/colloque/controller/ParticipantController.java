@@ -3,12 +3,10 @@ package tsi.ensg.jee.colloque.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import tsi.ensg.jee.colloque.metier.Participant;
 import tsi.ensg.jee.colloque.services.ParticipantDao;
 
@@ -28,10 +26,10 @@ public class ParticipantController {
         return "participant";
     }
 
-    @GetMapping("/participant/{num_person}")
-    public String getParticipant(Model model, @PathVariable Long num_person) {
-        if (participantDao.findById(num_person).isPresent()){
-            Participant participant = participantDao.findById(num_person).get();
+    @GetMapping("/participant/{numPerson}")
+    public String getParticipant(Model model, @PathVariable Long numPerson) {
+        if (participantDao.findById(numPerson).isPresent()){
+            Participant participant = participantDao.findById(numPerson).get();
             model.addAttribute("participant", participant); // Ajout au modèle
         }
         return "participant"; //Envoi vers la vue
@@ -56,15 +54,25 @@ public class ParticipantController {
         return "redirect:/participants";
     }
 
-    @PostMapping("/editParticipant")
-    public String editParticipant(Model model, Participant participant) {
+    @GetMapping("/editParticipant/{numPerson}")
+    public String editParticipant(Model model, @PathVariable("numPerson") Long numPerson) {
+        Participant participant = participantDao.findById(numPerson).get();
         model.addAttribute("participant", participant);
-        return "editParticipant";
+        return "createPartForm";
     }
 
-    @PutMapping("/participant/{num_person}")
-    public String updateParticipant(Model model, @PathVariable Long num_person) {return "editParticipant";} //Envoi vers la vue
+    /**
+     * Function which delete a participant to participants.html
+     * @param model the view
+     * @param numPerson the id of the participant
+     * @return View participants.html
+     */
+    @GetMapping("/deletePart/{numPerson}")
+    public String deleteEvenement(Model model, @PathVariable("numPerson") Long numPerson) {
+        Participant participant = participantDao.findById(numPerson).get();
+        System.out.println("test");
+        participantDao.delete(participant);
+        return "redirect:/participants";
+    } //Envoi vers la vue
 
-    @DeleteMapping("/participant/{num_person}")
-    public String deleteParticipant(Model model, @PathVariable Long num_person) {return "participants";} //Envoi vers la vue
 }

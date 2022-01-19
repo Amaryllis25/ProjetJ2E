@@ -14,7 +14,7 @@ public class Evenement {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "num_even")
+    @Column(name = "numEvent")
     private long numEvent;
 
     @Column(nullable = false)

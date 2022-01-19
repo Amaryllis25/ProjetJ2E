@@ -12,7 +12,7 @@ public class Participant {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "num_person")
+    @Column(name = "numPerson")
     private long numPerson;
 
     @Column(nullable = false)
