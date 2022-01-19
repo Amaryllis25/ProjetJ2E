@@ -63,6 +63,13 @@ public class EvenementController {
         return "redirect:/evenements";
     }
 
+    @GetMapping("/editEvenement/{numEvent}")
+    public String editParticipant(Model model, @PathVariable("numEvent") Long numEvent) {
+        Evenement evenement = evenementDao.findById(numEvent).get();
+        model.addAttribute("evenement", evenement);
+        return "createEvenForm";
+    }
+
     /**
      * Function which delete an event to evenements.html
      * @param model the view
