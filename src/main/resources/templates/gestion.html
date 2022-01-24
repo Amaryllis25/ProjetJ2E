@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Evenements</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+
+    <body>
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+
+        <p>Evenement à venir ! Participer</p>
+        <p>Voir Bobby <a href="/participant">here</a></p>
+        <p>Edit Bobby <a href="/editParticipant/1">here</a></p>
+        <p>Créer un participant <a href="/createPartForm">here</a></p>
+        <p>Voici tous les participants <a href="/participants">here</a></p>
+        <p>Créer un evenement <a href="/createEvenForm">here</a></p>
+        <p>Voir tous les évènements <a href="/evenements">here</a></p>
+    </body>
+</html>

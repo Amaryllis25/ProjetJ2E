@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Evènement</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p>Le titre de l'évènement est : <span th:text="${evenement.title}"></span>. Il aura pour thème : <td><span th:text="${evenement.theme}"></span>.</p>
+
+    <p>L'évènement début le <span th:text="${evenement.beginDate}"></span> pour une durée de
+        <span th:text="${evenement.duration}"></span> jours avec <span th:text="${evenement.nbPartMax}"></span> participants maximum.</p>
+
+    <div>
+        <p>Description :</p>
+        <p><span th:text="${evenement.description}"></span></p>
+    </div>
+
+    <p>L'organisateur est <span th:text="${evenement.organisator}"></span>.</p>
+    <p>Le type d'évènement est : <td><span th:text="${evenement.typeEvent}"></span>.</p>
+
+    <p>L'évènement peut être supprimé <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" th:method="delete">ici</a>.</p>
+    <p>L'évènement peut être modifié <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}">ici</a>.</p>
+</tr>
+</body>
+</html>
