@@ -6,5 +6,6 @@
 </head>
 <body>
 <p th:text="'Hello, ' + ${evenement.theme} + '!'" />
+<p>Modifier l'évènement <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}">here</a></p>
 </body>
 </html>
