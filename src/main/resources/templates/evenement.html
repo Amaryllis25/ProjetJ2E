@@ -18,7 +18,7 @@
     <p>L'organisateur est <span th:text="${evenement.organisator}"></span>.</p>
     <p>Le type d'évènement est : <td><span th:text="${evenement.typeEvent}"></span>.</p>
 
-    <p>L'évènement peut être supprimé <span th:text="${evenement.numEvent}"></span> <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" th:method="delete">ici</a>.</p>
+    <p>L'évènement peut être supprimé <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" th:method="delete">ici</a>.</p>
     <p>L'évènement peut être modifié <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}">ici</a>.</p>
 </tr>
 </body>
