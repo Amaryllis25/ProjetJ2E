@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import tsi.ensg.jee.colloque.metier.Evenement;
 import tsi.ensg.jee.colloque.metier.Participant;
+import tsi.ensg.jee.colloque.repositories.EvenementRepo;
 import tsi.ensg.jee.colloque.services.EvenementDao;
 import tsi.ensg.jee.colloque.services.ParticipantDao;
 
@@ -13,26 +14,29 @@ import java.util.List;
 import static org.junit.Assert.assertNotNull;
 
 public class EvenementDaoTest {
-/*
+
     @Test
     public void testDefaultConstructor() {
         EvenementDao evenementDao = new EvenementDao();
         assertNotNull(evenementDao);
     }
-
+/*
     @Test
     public void testCreateMethod() {
+        EvenementRepo repository;
         EvenementDao evenementDao = new EvenementDao();
 
         Evenement evenement = new Evenement("Undertale party", "Undertale", "22/04/2022", 3,
                 100000, "Events for Undertale's fans", "Toby Fox", "Trailer");
         evenement.setNumEvent(1);
-        long e1 = evenementDao.create("Undertale party", "Undertale", "22/04/2022", 3,
-                100000, "Events for Undertale's fans", "Toby Fox", "Trailer");
 
-        Assert.assertEquals(evenement, evenementDao.get(e1));
+        evenementDao.save(evenement);
+
+        System.out.println("test");
+
+        Assert.assertEquals(evenement, evenementDao.findById(1L).get());
     }
-
+/*
     @Test
     public void testDeleteMethod() {
         EvenementDao evenementDao = new EvenementDao();

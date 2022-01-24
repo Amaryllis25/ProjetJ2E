@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="tsi.ensg.jee.metier.ParticipantTest" time="0" tests="9" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="tsi.ensg.jee.services.EvenementDaoTest" time="0" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="13"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -57,13 +57,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="57.0"/>
   </properties>
-  <testcase name="testMethodEqualsNull" classname="tsi.ensg.jee.metier.ParticipantTest" time="0"/>
-  <testcase name="testMethodEqualsSame" classname="tsi.ensg.jee.metier.ParticipantTest" time="0"/>
-  <testcase name="testMethodEqualsTrue" classname="tsi.ensg.jee.metier.ParticipantTest" time="0"/>
-  <testcase name="testMethodEqualsFalse" classname="tsi.ensg.jee.metier.ParticipantTest" time="0"/>
-  <testcase name="testDefaultConstructeurFullFilled" classname="tsi.ensg.jee.metier.ParticipantTest" time="0"/>
-  <testcase name="testDefaultConstructeurSetter" classname="tsi.ensg.jee.metier.ParticipantTest" time="0"/>
-  <testcase name="testHashCodeMethodTrue" classname="tsi.ensg.jee.metier.ParticipantTest" time="0"/>
-  <testcase name="testToStringMethod" classname="tsi.ensg.jee.metier.ParticipantTest" time="0"/>
-  <testcase name="testDefaultConstructor" classname="tsi.ensg.jee.metier.ParticipantTest" time="0"/>
+  <testcase name="testDefaultConstructor" classname="tsi.ensg.jee.services.EvenementDaoTest" time="0"/>
 </testsuite>

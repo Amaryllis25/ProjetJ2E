@@ -1,6 +1,6 @@
-tsi\ensg\jee\metier\IntervenantTest.class
-tsi\ensg\jee\services\ParticipantDaoTest.class
 tsi\ensg\jee\services\EvenementDaoTest.class
 tsi\ensg\jee\services\IntervenantDaoTest.class
-tsi\ensg\jee\metier\ParticipantTest.class
 tsi\ensg\jee\metier\EvenementTest.class
+tsi\ensg\jee\metier\IntervenantTest.class
+tsi\ensg\jee\services\ParticipantDaoTest.class
+tsi\ensg\jee\metier\ParticipantTest.class

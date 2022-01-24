@@ -12,33 +12,33 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
-<span class="nc" id="L15">public class WebSecurityConfig extends WebSecurityConfigurerAdapter {</span>
+<span class="fc" id="L15">public class WebSecurityConfig extends WebSecurityConfigurerAdapter {</span>
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-<span class="nc" id="L18">		http</span>
-<span class="nc" id="L19">			.authorizeRequests()</span>
-<span class="nc" id="L20">				.antMatchers(&quot;/&quot;, &quot;/index&quot;).permitAll()</span>
-<span class="nc" id="L21">				.anyRequest().authenticated()</span>
-<span class="nc" id="L22">				.and()</span>
-<span class="nc" id="L23">			.formLogin()</span>
-<span class="nc" id="L24">				.loginPage(&quot;/login&quot;)</span>
-<span class="nc" id="L25">				.permitAll()</span>
-<span class="nc" id="L26">				.and()</span>
-<span class="nc" id="L27">			.logout()</span>
-<span class="nc" id="L28">				.permitAll();</span>
-<span class="nc" id="L29">	}</span>
+<span class="fc" id="L18">		http</span>
+<span class="fc" id="L19">			.authorizeRequests()</span>
+<span class="fc" id="L20">				.antMatchers(&quot;/&quot;, &quot;/index&quot;).permitAll()</span>
+<span class="fc" id="L21">				.anyRequest().authenticated()</span>
+<span class="fc" id="L22">				.and()</span>
+<span class="fc" id="L23">			.formLogin()</span>
+<span class="fc" id="L24">				.loginPage(&quot;/login&quot;)</span>
+<span class="fc" id="L25">				.permitAll()</span>
+<span class="fc" id="L26">				.and()</span>
+<span class="fc" id="L27">			.logout()</span>
+<span class="fc" id="L28">				.permitAll();</span>
+<span class="fc" id="L29">	}</span>
 
 	@Bean
 	@Override
 	public UserDetailsService userDetailsService() {
 		UserDetails user =
-<span class="nc" id="L35">			 User.withDefaultPasswordEncoder()</span>
-<span class="nc" id="L36">				.username(&quot;user&quot;)</span>
-<span class="nc" id="L37">				.password(&quot;password&quot;)</span>
-<span class="nc" id="L38">				.roles(&quot;USER&quot;)</span>
-<span class="nc" id="L39">				.build();</span>
+<span class="fc" id="L35">			 User.withDefaultPasswordEncoder()</span>
+<span class="fc" id="L36">				.username(&quot;user&quot;)</span>
+<span class="fc" id="L37">				.password(&quot;password&quot;)</span>
+<span class="fc" id="L38">				.roles(&quot;USER&quot;)</span>
+<span class="fc" id="L39">				.build();</span>
 
-<span class="nc" id="L41">		return new InMemoryUserDetailsManager(user);</span>
+<span class="fc" id="L41">		return new InMemoryUserDetailsManager(user);</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
