@@ -7,17 +7,23 @@ L'application nécessite pour fonctionner
 - Un JDK de version 13 (azul...)
 - 
 - D'avoir installer maven (version 3.8.4) sur son ordinateur
-\textbf{Sous Linux} : 
+
+**Sous Linux** : 
+
 Pré-requis: Avoir installé un JDK (1.7 et plus)
 ```
 sudo apt-get install maven
 ```
-\textbf{Sous Windows} :
-Prérequis : Avoir téléchargé un JDK (1.7 et plus) et l'avoir ajouté en temps que variable d'environnement (voir [ici](https://maven.apache.org/install.html) pour plus de détails).
-Téléchargez le zip du package [maven](https://maven.apache.org/download.cgi).
-Déziper le fichier.
-Ajoutez le fichier bin en tant que variable d'environnement.
 
+**Sous Windows** :
+
+Prérequis : Avoir téléchargé un JDK (1.7 et plus) et l'avoir ajouté en temps que variable d'environnement (voir [ici](https://maven.apache.org/install.html) pour plus de détails).
+
+Téléchargez le zip du package [maven](https://maven.apache.org/download.cgi).
+
+Déziper le fichier.
+
+Ajoutez le fichier bin en tant que variable d'environnement.
 - Un IDE (IntelliJ, VSC...)
 - Avoir installer PostgreSQL (version 14.1)
 
