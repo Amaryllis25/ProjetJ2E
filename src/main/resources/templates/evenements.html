@@ -3,9 +3,10 @@
     <head>
         <title>Colloque</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link th:href="@{/styles/styles.css}" rel="stylesheet"/>
     </head>
     <body>
-
+        <p>Hello, World</p>
         <p>Créer un evenement <a href="/createEvenForm">here</a></p>
         <p>Chercher un evenement <a href="/createEvenForm">here</a></p>
 
@@ -22,7 +23,8 @@
             <p>Organisateur : <td><span th:text="${evenement.organisator}"></span></td></p>
             <p>Type d'évènements : <td><span th:text="${evenement.typeEvent}"></span></td></p>
             <p>Lien vers la page de l'évènement <span th:text="${evenement.numEvent}"></span> <a th:href="@{/evenement/{num_even}(num_even=${evenement.numEvent})}">here</a></p>
-            <p>Supprimer <span th:text="${evenement.numEvent}"></span> <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" th:method="delete">here</a></p>
+            <p>Supprimer l'évènement <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" th:method="delete">here</a></p>
+            <p>Modifier l'évènement <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}">here</a></p>
         </tr>
     </body>
 </html>
