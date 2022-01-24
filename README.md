@@ -5,7 +5,6 @@ Répertoire du projet de J2E
 
 L'application nécessite pour fonctionner
 - Un JDK de version 13 (azul...)
-- 
 - D'avoir installer maven (version 3.8.4) sur son ordinateur
 
 **Sous Linux** : 
