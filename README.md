@@ -11,7 +11,7 @@ Pré-requis: Avoir installé un JDK (1.7 et plus)
 ```
 sudo apt-get install maven
 ```
-  - Sous Windows
+    - Sous Windows
 Prérequis : Avoir téléchargé un JDK (1.7 et plus) et l'avoir ajouté en temps que variable d'environnement (voir [ici](https://maven.apache.org/install.html) pour plus de détails).
 Téléchargez le zip du package [maven](https://maven.apache.org/download.cgi).
 Déziper le fichier.
