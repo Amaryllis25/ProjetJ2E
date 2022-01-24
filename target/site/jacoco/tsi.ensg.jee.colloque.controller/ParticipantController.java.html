@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParticipantController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjetJ2E</a> &gt; <a href="index.source.html" class="el_package">tsi.ensg.jee.colloque.controller</a> &gt; <span class="el_source">ParticipantController.java</span></div><h1>ParticipantController.java</h1><pre class="source lang-java linenums">package tsi.ensg.jee.colloque.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import tsi.ensg.jee.colloque.metier.Participant;
+import tsi.ensg.jee.colloque.services.ParticipantDao;
+
+@Controller
+<span class="nc" id="L14">public class ParticipantController {</span>
+
+    @Autowired
+    ParticipantDao participantDao;
+
+    @GetMapping(&quot;/participant&quot;)
+    public String create(Model model) {
+<span class="nc" id="L21">        Participant participant = new Participant(&quot;Boby&quot;, &quot;Lapointe&quot;,</span>
+                &quot;boby.lapointe@jgv.com&quot;, &quot;10/01/1975&quot;,
+                &quot;ENSG&quot;, &quot;...&quot;);
+<span class="nc" id="L24">        participantDao.save(participant);</span>
+<span class="nc" id="L25">        model.addAttribute(&quot;participant&quot;, participant); // Ajout au modèle</span>
+<span class="nc" id="L26">        return &quot;participant&quot;;</span>
+    }
+
+    @GetMapping(&quot;/participant/{numPerson}&quot;)
+    public String getParticipant(Model model, @PathVariable Long numPerson) {
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (participantDao.findById(numPerson).isPresent()){</span>
+<span class="nc" id="L32">            Participant participant = participantDao.findById(numPerson).get();</span>
+<span class="nc" id="L33">            model.addAttribute(&quot;participant&quot;, participant); // Ajout au modèle</span>
+        }
+<span class="nc" id="L35">        return &quot;participant&quot;; //Envoi vers la vue</span>
+    }
+
+    @GetMapping(&quot;/participants&quot;)
+    public String getParticipants(Model model) {
+<span class="nc" id="L40">        model.addAttribute(&quot;participants&quot;,participantDao.findAll()); // Ajout au modèle</span>
+<span class="nc" id="L41">        return &quot;participants&quot;; //Envoi vers la vue</span>
+    }
+
+    @GetMapping(&quot;/createPartForm&quot;)
+    public String createParticipant(Model model) {
+<span class="nc" id="L46">        model.addAttribute(&quot;participant&quot;, new Participant()); // Ajout au modèle</span>
+<span class="nc" id="L47">        return &quot;createPartForm&quot;;</span>
+    }
+
+    @PostMapping(&quot;/createPartForm&quot;)
+    public String addParticipant(Model model, @ModelAttribute(&quot;participant&quot;) Participant participant) {
+<span class="nc" id="L52">        model.addAttribute(&quot;participant&quot;, participant);</span>
+<span class="nc" id="L53">        participantDao.save(participant);</span>
+<span class="nc" id="L54">        return &quot;redirect:/participants&quot;;</span>
+    }
+
+    @GetMapping(&quot;/editParticipant/{numPerson}&quot;)
+    public String editParticipant(Model model, @PathVariable(&quot;numPerson&quot;) Long numPerson) {
+<span class="nc" id="L59">        Participant participant = participantDao.findById(numPerson).get();</span>
+<span class="nc" id="L60">        model.addAttribute(&quot;participant&quot;, participant);</span>
+<span class="nc" id="L61">        return &quot;createPartForm&quot;;</span>
+    }
+
+    /**
+     * Function which delete a participant to participants.html
+     * @param model the view
+     * @param numPerson the id of the participant
+     * @return View participants.html
+     */
+    @GetMapping(&quot;/deletePart/{numPerson}&quot;)
+    public String deleteEvenement(Model model, @PathVariable(&quot;numPerson&quot;) Long numPerson) {
+<span class="nc" id="L72">        Participant participant = participantDao.findById(numPerson).get();</span>
+<span class="nc" id="L73">        System.out.println(&quot;test&quot;);</span>
+<span class="nc" id="L74">        participantDao.delete(participant);</span>
+<span class="nc" id="L75">        return &quot;redirect:/participants&quot;;</span>
+    } //Envoi vers la vue
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
