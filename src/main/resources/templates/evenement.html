@@ -21,5 +21,20 @@
     <p>L'évènement peut être supprimé <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" th:method="delete">ici</a>.</p>
     <p>L'évènement peut être modifié <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}">ici</a>.</p>
 </tr>
+
+    <p>La liste des personnes qui peuvent être inscrites :</p>
+    <div>
+        <tr th:if="${participants.empty}">
+            <td colspan="2"> Aucun participants inscrit</td>
+        </tr>
+
+        <tr th:each="participant : ${participants}">
+            <p>
+            <td><span th:text="${participant.numPerson}"></span></td>
+            <td><span th:text="${participant.firstName}"></span></td>
+            <p>Ajouter <span th:text="${participant.numPerson}"></span><a th:href="@{/evenement/{num_even}/add/{numPerson}(num_even=${evenement.numEvent}, numPerson=${participant.numPerson})}"> ici</a></p>
+            </p>
+        </tr>
+    </div>
 </body>
 </html>
