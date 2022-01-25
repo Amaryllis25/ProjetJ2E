@@ -3,6 +3,10 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
         <title>Spring Security Example </title>
+        <link rel="stylesheet" href="styles/styles.css">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
         <div th:if="${param.error}">
@@ -11,10 +15,30 @@
         <div th:if="${param.logout}">
             You have been logged out.
         </div>
-        <form th:action="@{/login}" method="post">
-            <div><label> User Name : <input type="text" name="username"/> </label></div>
-            <div><label> Password: <input type="password" name="password"/> </label></div>
-            <div><input type="submit" value="Sign In"/></div>
-        </form>
+
+        <div class="simple-login-container">
+            <h2 class="row justify-content-center">Login Form</h2>
+
+            <form th:action="@{/login}" method="post">
+
+                <div class="col-3"></div>
+                    <div class="col-md-12 form-group">
+                        <input type="text" class="form-control" placeholder="Username" name="username"/>
+                    </div>
+                
+                <div class="row justify-content-center"></div>
+                    <div class="col-md-12 form-group">
+                        <input type="password" class="form-control" placeholder="Password" name="password"/>
+                    </div>
+
+                <div class="row justify-content-center"></div>
+                    <div class="col-md-12 form-group">
+                        <input type="submit" class="btn btn-block btn-login" value="Sign In"/>
+                    </div>
+
+            </form>
+
+        </div>
+
     </body>
 </html>

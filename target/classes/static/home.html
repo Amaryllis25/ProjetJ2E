@@ -3,14 +3,29 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
         <title>Evenements</title>
-        <link rel="stylesheet" href="styles.css">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+            <!-- Required meta tags -->
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles/styles.css">
     </head>
 
     <body>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Bienvenu sur le site colloque de fou</a>
+        </nav>
 
-        <p>Login : <a href="/login">here</a></p>
-        <p>Acces to gestion <a href="/gestion">here</a></p>
+        <div>
+            <p class="row justify-content-center">Créer un évènement, inscriver des participants quand vous voulez !</p>
+        </div>
+
+        <div class="container row justify-content-center mb-3">
+            <a href="/login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a>
+        </div>
 
     </body>
 </html>
