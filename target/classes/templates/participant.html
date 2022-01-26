@@ -4,7 +4,15 @@
     <title>Colloque</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body>
-<p th:text="'Hello, ' + ${participant.firstName} + '!'" />
-</body>
+    <body>
+        <p>Prénom du participant : <td><span th:text="${participant.firstName}"></span></td></p>
+        <p>Nom du participant : <td><span th:text="${participant.lastName}"></span></td></p>
+        <p>Email du participant : <td><span th:text="${participant.email}"></span></td></p>
+        <p>Date de naissance : <td><span th:text="${participant.birthDate}"></span></td></p>
+        <p>Organisation : <td><span th:text="${participant.organisation}"></span></td></p>
+        <p>Observations :<td><span th:text="${participant.observations}"></span></td></p>
+        
+        <p>Supprimer le participant <a th:href="@{/deletePart/{num_even}(num_even=${participant.numPerson})}" th:method="delete">here</a></p>
+        <p>Modifier le participant <a th:href="@{/editParticipant/{num_even}(num_even=${participant.numPerson})}">here</a></p>
+    </body>
 </html>
