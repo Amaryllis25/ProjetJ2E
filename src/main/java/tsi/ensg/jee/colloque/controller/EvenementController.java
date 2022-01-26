@@ -69,6 +69,16 @@ public class EvenementController {
     @PostMapping("/createEvenForm")
     public String addEvenement(Model model, @ModelAttribute("evenement") Evenement evenement) {
         model.addAttribute("evenement", evenement);
+        System.out.println("BAAAAAAAAAAAAAAAAAAAAH");
+        if(evenement.getParticipants().isEmpty()) {
+            System.out.println("AAAAAAAAAAAAAAAAAAAAAH");
+            List<Participant> participants = new ArrayList<>();
+            evenement.setParticipants(participants);
+        }else{
+            List<Participant> participants = evenement.getParticipants();
+            System.out.println(participants);
+            evenement.setParticipants(participants);
+        }
         evenementDao.save(evenement);
         return "redirect:/evenements";
     }
@@ -89,7 +99,7 @@ public class EvenementController {
      * Function which delete an event to evenements.html
      * @param model the view
      * @param numEvent the id of the event
-     * @return View evenements.html
+     * @return View evenements.html&
      */
     @GetMapping("/deleteEvent/{numEvent}")
     public String deleteEvenement(Model model, @PathVariable("numEvent") Long numEvent) {
@@ -105,13 +115,10 @@ public class EvenementController {
         Evenement evenement = evenementDao.findById(numEvent).get();
         System.out.println(participantDao.findById(numPerson).get());
 
-        List<Participant> participants = new ArrayList<>();
-        evenement.setParticipants(participants);
         evenement.addParticipant(participantDao.findById(numPerson).get());
 
-        System.out.println();
         model.addAttribute("evenement", evenement);
-        System.out.println(evenement);
+        evenementDao.save(evenement);
         return "redirect:/evenement/" + numEvent;
     }
 }

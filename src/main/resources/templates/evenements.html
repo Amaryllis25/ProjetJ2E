@@ -23,6 +23,7 @@
             <p>Description : <td><span th:text="${evenement.description}"></span></td></p>
             <p>Organisateur : <td><span th:text="${evenement.organisator}"></span></td></p>
             <p>Type d'évènements : <td><span th:text="${evenement.typeEvent}"></span></td></p>
+            <p>Participants : <td><span th:text="${evenement.participants}"></span></td></p>
             <p>Lien vers la page de l'évènement <span th:text="${evenement.numEvent}"></span> <a th:href="@{/evenement/{num_even}(num_even=${evenement.numEvent})}">here</a></p>
             <p>Supprimer l'évènement <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" th:method="delete">here</a></p>
             <p>Modifier l'évènement <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}">here</a></p>
