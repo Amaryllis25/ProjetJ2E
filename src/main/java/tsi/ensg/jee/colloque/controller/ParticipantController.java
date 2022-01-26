@@ -16,6 +16,8 @@ public class ParticipantController {
     @Autowired
     ParticipantDao participantDao;
 
+    int nbMaxParticipant = 5;
+
     @GetMapping("/participant")
     public String create(Model model) {
         Participant participant = new Participant("Boby", "Lapointe",
@@ -43,6 +45,7 @@ public class ParticipantController {
 
     @GetMapping("/createPartForm")
     public String createParticipant(Model model) {
+        model.addAttribute("nbMaxParticipant", nbMaxParticipant);
         model.addAttribute("participants",participantDao.findAll()); // Ajout au modèle
         model.addAttribute("participant", new Participant()); // Ajout au modèle
         return "createPartForm";
