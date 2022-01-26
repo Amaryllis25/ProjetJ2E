@@ -11,7 +11,7 @@
         <p>Date de naissance : <td><span th:text="${participant.birthDate}"></span></td></p>
         <p>Organisation : <td><span th:text="${participant.organisation}"></span></td></p>
         <p>Observations :<td><span th:text="${participant.observations}"></span></td></p>
-        
+
         <p>Supprimer le participant <a th:href="@{/deletePart/{num_even}(num_even=${participant.numPerson})}" th:method="delete">here</a></p>
         <p>Modifier le participant <a th:href="@{/editParticipant/{num_even}(num_even=${participant.numPerson})}">here</a></p>
     </body>
