@@ -15,7 +15,13 @@
         <a href="/gestion" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Accueil</a>
     </div>
 
-    <div style="padding:15px; width: 30%" class="col-md-4 ml-auto mr-auto">
+    <div style="margin:15px">
+        <tr th:if="${participants.size == 5}">
+            <td colspan="2">Nombre maximal de participant inscrit</td>
+        </tr>
+    </div>
+
+    <div th:unless="${participants.size == 5}" style="padding:15px; width: 30%" class="col-md-4 ml-auto mr-auto">
 
         <div>
             <p>Ajouter un participant :</p>

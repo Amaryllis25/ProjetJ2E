@@ -43,6 +43,7 @@ public class ParticipantController {
 
     @GetMapping("/createPartForm")
     public String createParticipant(Model model) {
+        model.addAttribute("participants",participantDao.findAll()); // Ajout au modèle
         model.addAttribute("participant", new Participant()); // Ajout au modèle
         return "createPartForm";
     }
