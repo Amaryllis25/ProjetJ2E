@@ -69,8 +69,16 @@ public class EvenementController {
     @PostMapping("/createEvenForm")
     public String addEvenement(Model model, @ModelAttribute("evenement") Evenement evenement) {
         model.addAttribute("evenement", evenement);
-        List<Participant> participants = new ArrayList<>();
-        evenement.setParticipants(participants);
+        System.out.println("BAAAAAAAAAAAAAAAAAAAAH");
+        if(evenement.getParticipants().isEmpty()) {
+            System.out.println("AAAAAAAAAAAAAAAAAAAAAH");
+            List<Participant> participants = new ArrayList<>();
+            evenement.setParticipants(participants);
+        }else{
+            List<Participant> participants = evenement.getParticipants();
+            System.out.println(participants);
+            evenement.setParticipants(participants);
+        }
         evenementDao.save(evenement);
         return "redirect:/evenements";
     }
@@ -109,9 +117,7 @@ public class EvenementController {
 
         evenement.addParticipant(participantDao.findById(numPerson).get());
 
-        System.out.println();
         model.addAttribute("evenement", evenement);
-        System.out.println(evenement);
         evenementDao.save(evenement);
         return "redirect:/evenement/" + numEvent;
     }
