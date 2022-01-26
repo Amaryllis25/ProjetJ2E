@@ -14,10 +14,10 @@
 
         <div style="width: 40%; height: 50%; margin-top: 40px">
 
-            <div th:if="${param.error}">
+            <div th:if="${param.error}" style="padding-bottom: 20px">
                 Invalid username and password.
             </div>
-            <div th:if="${param.logout}">
+            <div th:if="${param.logout}" style="padding-bottom: 20px">
                 You have been logged out.
             </div>
 

@@ -10,7 +10,10 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <p>Retour à la page d'<a href="gestion.html">accueil</a>.</p>
+
+    <div style="margin:15px">
+        <a href="/gestion" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Accueil</a>
+    </div>
 
     <div style="margin:15px">
 
@@ -31,9 +34,10 @@
 
         <div style="margin:15px" class="d-grid gap-2 d-md-block container-fluid">
 
-            <td><span th:text="${participant.firstName}"></span></td>
-            <td><span th:text="${participant.numPerson}"></span></td>
-            <td><span th:text="${participant.lastName}"></span></td>
+            <a th:href="@{'/participant/' + ${participant.numPerson}}">
+                <td><span th:text="${participant.firstName}"></span></td>
+                <td><span th:text="${participant.lastName}"></span></td>
+            </a>
             <td><span th:text="${participant.email}"></span></td>
             <td><span th:text="${participant.birthDate}"></span></td>
             <td><span th:text="${participant.organisation}"></span></td>
