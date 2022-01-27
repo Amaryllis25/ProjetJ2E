@@ -34,7 +34,7 @@
 
         <div style="margin:15px" class="d-grid gap-2 d-md-block container-fluid">
 
-            <a th:href="@{'/participant/' + ${participant.numPerson}}">
+            <a th:href="@{/participant/{numPerson}(numPerson=${participant.numPerson})}">
                 <td><span th:text="${participant.firstName}"></span></td>
                 <td><span th:text="${participant.lastName}"></span></td>
             </a>
