@@ -123,7 +123,6 @@ public class EvenementController {
             model.addAttribute("evenement", evenement);
             evenementDao.save(evenement);
         }
-
         return "redirect:/evenement/" + numEvent;
     }
 }

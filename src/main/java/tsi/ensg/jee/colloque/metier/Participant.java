@@ -3,6 +3,8 @@ package tsi.ensg.jee.colloque.metier;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -16,9 +18,13 @@ public class Participant {
     private long numPerson;
 
     @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 5)
     private String firstName;
 
     @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 5)
     private String lastName;
 
     @Column(nullable = false)
