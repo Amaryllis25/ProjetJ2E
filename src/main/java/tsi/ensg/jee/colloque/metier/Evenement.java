@@ -3,6 +3,9 @@ package tsi.ensg.jee.colloque.metier;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -18,6 +21,8 @@ public class Evenement {
     private long numEvent;
 
     @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 5)
     private String title;
 
     @Column(nullable = false)
@@ -27,15 +32,19 @@ public class Evenement {
     private String beginDate;
 
     @Column(nullable = false)
+    @Min(1)
     private int duration;
 
     @Column(nullable = false)
+    @Min(1)
     private int nbPartMax;
 
     @Column(nullable = false)
     private String description;
 
     @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 5)
     private String organisator;
 
     @Column(nullable = false)

@@ -1,8 +1,10 @@
 package tsi.ensg.jee.colloque.controller;
 
+import jdk.nashorn.internal.runtime.ErrorManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,23 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import tsi.ensg.jee.colloque.metier.Participant;
 import tsi.ensg.jee.colloque.services.ParticipantDao;
 
+import javax.validation.Valid;
+
 @Controller
 public class ParticipantController {
 
     @Autowired
     ParticipantDao participantDao;
-
-    int nbMaxParticipant = 5;
-
-    @GetMapping("/participant")
-    public String create(Model model) {
-        Participant participant = new Participant("Boby", "Lapointe",
-                "boby.lapointe@jgv.com", "10/01/1975",
-                "ENSG", "...");
-        participantDao.save(participant);
-        model.addAttribute("participant", participant); // Ajout au modèle
-        return "participant";
-    }
 
     @GetMapping("/participant/{numPerson}")
     public String getParticipant(Model model, @PathVariable Long numPerson) {
@@ -45,14 +37,17 @@ public class ParticipantController {
 
     @GetMapping("/createPartForm")
     public String createParticipant(Model model) {
-        model.addAttribute("nbMaxParticipant", nbMaxParticipant);
         model.addAttribute("participants",participantDao.findAll()); // Ajout au modèle
         model.addAttribute("participant", new Participant()); // Ajout au modèle
         return "createPartForm";
     }
 
     @PostMapping("/createPartForm")
-    public String addParticipant(Model model, @ModelAttribute("participant") Participant participant) {
+    public String addParticipant(Model model, @Valid @ModelAttribute("participant") Participant participant, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "createPartForm";
+        }
         model.addAttribute("participant", participant);
         participantDao.save(participant);
         return "redirect:/participants";

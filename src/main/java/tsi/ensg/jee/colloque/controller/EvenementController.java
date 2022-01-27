@@ -3,12 +3,14 @@ package tsi.ensg.jee.colloque.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import tsi.ensg.jee.colloque.metier.Evenement;
 import tsi.ensg.jee.colloque.metier.Participant;
 import tsi.ensg.jee.colloque.services.EvenementDao;
 import tsi.ensg.jee.colloque.services.ParticipantDao;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,16 +69,17 @@ public class EvenementController {
      * @return View evenements.html
      */
     @PostMapping("/createEvenForm")
-    public String addEvenement(Model model, @ModelAttribute("evenement") Evenement evenement) {
+    public String addEvenement(Model model, @Valid @ModelAttribute("evenement") Evenement evenement, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "createEvenForm";
+        }
         model.addAttribute("evenement", evenement);
-        System.out.println("BAAAAAAAAAAAAAAAAAAAAH");
         if(evenement.getParticipants().isEmpty()) {
-            System.out.println("AAAAAAAAAAAAAAAAAAAAAH");
             List<Participant> participants = new ArrayList<>();
             evenement.setParticipants(participants);
         }else{
             List<Participant> participants = evenement.getParticipants();
-            System.out.println(participants);
             evenement.setParticipants(participants);
         }
         evenementDao.save(evenement);
@@ -113,12 +116,13 @@ public class EvenementController {
     public String addParticipant(Model model, @PathVariable("numEvent") Long numEvent, @PathVariable("numPerson") Long numPerson) {
 
         Evenement evenement = evenementDao.findById(numEvent).get();
-        System.out.println(participantDao.findById(numPerson).get());
+        System.out.println(evenement.getParticipants().size());
 
-        evenement.addParticipant(participantDao.findById(numPerson).get());
-
-        model.addAttribute("evenement", evenement);
-        evenementDao.save(evenement);
+        if(evenement.getParticipants().size() < evenement.getNbPartMax()) {
+            evenement.addParticipant(participantDao.findById(numPerson).get());
+            model.addAttribute("evenement", evenement);
+            evenementDao.save(evenement);
+        }
         return "redirect:/evenement/" + numEvent;
     }
 }

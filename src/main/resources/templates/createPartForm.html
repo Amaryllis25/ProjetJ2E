@@ -15,13 +15,7 @@
         <a href="/gestion" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Accueil</a>
     </div>
 
-    <div style="margin:15px">
-        <tr th:if="${participants.size == nbMaxParticipant}">
-            <td colspan="2">Nombre maximal de participant inscrit</td>
-        </tr>
-    </div>
-
-    <div th:unless="${participants.size == nbMaxParticipant}" style="padding:15px; width: 30%" class="col-md-4 ml-auto mr-auto">
+    <div style="padding:15px; width: 30%" class="col-md-4 ml-auto mr-auto">
 
         <div>
             <p>Ajouter un participant :</p>
@@ -32,18 +26,17 @@
         
             <div class="mb-3 col-12">
                 <input type="text" class="form-control" placeholder="FirstName" th:field="*{firstName}"/>
+                <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">firstName Error</td>
             </div>
         
             <div class="mb-3 col-12">
                 <input type="text" class="form-control" placeholder="LastName" th:field="*{lastName}"/>
+                <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">lastName Error</td>
             </div>
         
             <div class="mb-3 col-12">
                 <input type="text" class="form-control" placeholder="email@gmail.com" th:field="*{email}"/>
-            </div>
-        
-            <div class="mb-3 col-12">
-                <input type="text" class="form-control" placeholder="BirthDate" th:field="*{birthDate}"/>
+                <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</td>
             </div>
         
             <div class="mb-3 col-12">
@@ -53,8 +46,7 @@
             <div class="mb-3 col-12">
                 <input type="text" class="form-control" placeholder="Organisation" th:field="*{organisation}"/>
             </div>
-        
-        
+
             <div class="mb-3 col-12">
                 <input type="text" class="form-control" placeholder="Observations" th:field="*{observations}"/>
             </div>
