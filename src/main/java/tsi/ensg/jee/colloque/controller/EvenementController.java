@@ -110,12 +110,14 @@ public class EvenementController {
     public String addParticipant(Model model, @PathVariable("numEvent") Long numEvent, @PathVariable("numPerson") Long numPerson) {
 
         Evenement evenement = evenementDao.findById(numEvent).get();
-        System.out.println(participantDao.findById(numPerson).get());
+        System.out.println(evenement.getParticipants().size());
 
-        evenement.addParticipant(participantDao.findById(numPerson).get());
+        if(evenement.getParticipants().size() < evenement.getNbPartMax()) {
+            evenement.addParticipant(participantDao.findById(numPerson).get());
+            model.addAttribute("evenement", evenement);
+            evenementDao.save(evenement);
+        }
 
-        model.addAttribute("evenement", evenement);
-        evenementDao.save(evenement);
         return "redirect:/evenement/" + numEvent;
     }
 }

@@ -37,12 +37,17 @@
                 <td colspan="2"> Aucun participants inscrit</td>
             </tr>
 
-            <tr th:each="participant : ${participants}">
-                <p>
-                <td>Participant <span th:text="${participant.numPerson}"></span> <span th:text="${participant.firstName}"></span></td>
-                <a th:href="@{/evenement/{num_even}/add/{numPerson}(num_even=${evenement.numEvent}, numPerson=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Ajouter</a></p>
-                </p>
-            </tr>
+            <div th:unless="${#lists.size(evenement.participants)} == ${evenement.nbPartMax}">
+                <tr th:each="participant : ${participants}">
+                    <p>
+                    <td>Participant <span th:text="${participant.numPerson}"></span> <span th:text="${participant.firstName}"></span></td>
+                    <a th:href="@{/evenement/{num_even}/add/{numPerson}(num_even=${evenement.numEvent}, numPerson=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Ajouter</a></p>
+                    </p>
+                </tr>
+            </div>
+            <div th:if="${#lists.size(evenement.participants)} == ${evenement.nbPartMax}" >
+                Il n'y a plus de place dans l'évènement !
+            </div>
 
             <p><a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
             <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a></p>
