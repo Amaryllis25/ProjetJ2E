@@ -13,34 +13,20 @@
             <a href="/createEvenForm" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Créer</a>
         </div>
 
-        <h3>Voir les informations sur les évènements organisés et leurs participants:</h3>
-
         <div style="margin:15px">
-
-        <p>
-        <tr th:if="${evenements.empty}">
-            <td colspan="2"> Aucun evenements inscrit</td>
-        </tr>
-        <tr th:each="evenement : ${evenements}">
-            <td>Titre : <span th:text="${evenement.title}"></span></td>
-            <!--<p>Participants : <td><span th:text="${evenement.participants}"></span></td></p>-->
-            <a th:href="@{/evenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Details</a>
-            <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
-            <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
-        </tr>
-        </p>
-            <!--
-                        <div style="margin:15px">
-                            <tr th:if="${evenements.empty}">
-                                <td colspan="2"> Aucun evenements inscrit</td>
-                            </tr>
-                            <tr th:each="evenement : ${evenements}">
-                                Titre : <td><span th:text="${evenement.title}"></span></td>
-                                <a th:href="@{/evenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Details</a>
-                                <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
-                                <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
-                            </tr>-->
-
+            <h3>Voir les informations sur les évènements organisés et leurs participants:</h3>
+                <tr th:if="${evenements.empty}">
+                    <td colspan="2"> Aucun evenement inscrit</td>
+                </tr>
         </div>
+
+        <tr th:each="evenement : ${evenements}">
+            <div style="margin:15px" class="d-grid gap-2 d-md-block container-fluid">
+            <td>Titre : <span th:text="${evenement.title}"></span></td>
+                <a th:href="@{/evenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Details</a>
+                <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
+                <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
+            </div>
+        </tr>
     </body>
 </html>
