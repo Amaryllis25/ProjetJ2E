@@ -23,8 +23,8 @@
             <td>Titre : <span th:text="${evenement.title}"></span></td>
             <!--<p>Participants : <td><span th:text="${evenement.participants}"></span></td></p>-->
             <a th:href="@{/evenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Details</a>
-            <p>Supprimer l'évènement <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" th:method="delete">here</a></p>
-            <p>Modifier l'évènement <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}">here</a></p>
+            <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
+            <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
         </tr>
 
 <!--
@@ -36,7 +36,7 @@
                     Titre : <td><span th:text="${evenement.title}"></span></td>
                     <a th:href="@{/evenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Details</a>
                     <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
-                    <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
+                    <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
                 </tr>-->
 
         </div>
