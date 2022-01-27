@@ -27,8 +27,8 @@
             <p>Organisation : <td><span th:text="${participant.organisation}"></span></td></p>
             <p>Observations :<td><span th:text="${participant.observations}"></span></td></p>
 
-            <a th:href="@{/deletePart/{num_even}(num_even=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
-            <a th:href="@{/editParticipant/{num_even}(num_even=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
+            <a th:href="@{/editParticipant/{num_even}(num_even=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
+            <a th:href="@{/deletePart/{num_even}(num_even=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
         </div>
     </body>
 </html>
