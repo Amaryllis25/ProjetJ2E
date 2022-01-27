@@ -18,17 +18,17 @@
 
     <div style="margin:15px">
 
-        <h3>Liste des participants</h3>
+        <h3>Liste des participants:</h3>
 
         <tr th:if="${participants.empty}">
             <td colspan="2"> Aucun participants inscrit</td>
         </tr>
     </div>
 
-    
+    <!--
         <div style="margin:15px" class="container-fluid justify-content-between">
             <p>Leurs firstName, lastName, email, birthDate, organisation, observations sont renseignés :</p>
-        </div>
+        </div>-->
 
 
     <tr th:each="participant : ${participants}">     

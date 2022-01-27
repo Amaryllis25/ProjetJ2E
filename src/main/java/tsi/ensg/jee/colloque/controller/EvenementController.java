@@ -118,11 +118,16 @@ public class EvenementController {
         Evenement evenement = evenementDao.findById(numEvent).get();
         System.out.println(evenement.getParticipants().size());
 
-        if(evenement.getParticipants().size() < evenement.getNbPartMax()) {
-            evenement.addParticipant(participantDao.findById(numPerson).get());
-            model.addAttribute("evenement", evenement);
-            evenementDao.save(evenement);
+        if (evenement.getParticipants().size() < evenement.getNbPartMax()) {
+            Participant participant = participantDao.findById(numPerson).get();
+            if (evenement.getParticipants().contains(participant)) {
+                return "redirect:/evenement/" + numEvent;
+            } else {
+                evenement.addParticipant(participant);
+                model.addAttribute("evenement", evenement);
+                evenementDao.save(evenement);
+            }
         }
-        return "redirect:/evenement/" + numEvent;
+            return "redirect:/evenement/" + numEvent;
     }
 }
