@@ -14,7 +14,7 @@
     </div>
 
     <div style="margin:15px">
-        <h3>Détails de l'évènement <span th:text="${evenement.title}"></h3>
+        <h3>Détails de l'évènement <span th:text="${evenement.title}"></span></h3>
 
         <p>L'évènement a pour thème : <td><span th:text="${evenement.theme}"></span>.</p>
 
@@ -29,7 +29,13 @@
         <p>L'organisateur est <span th:text="${evenement.organisator}"></span>.</p>
         <p>Le type d'évènement est : <td><span th:text="${evenement.typeEvent}"></span>.</p>
 
-        <p>Les participants sont : <td><span th:text="${evenement.participants}"></span></td></p>
+        <p>Les participants sont :
+            <tr th:each="participant : ${evenement.participants}">
+                <td><span th:text="${participant.firstName}"></span></td>
+                <td><span th:text="${participant.lastName}"></span></td>
+                <td><span th:text="${participant.email}"></span></td>
+            </tr>
+        </p>
 
         <p>La liste des personnes qui peuvent être inscrites :</p>
         <div>
@@ -41,7 +47,8 @@
                 <tr th:each="participant : ${participants}">
                     <p>
                     <td>Participant <span th:text="${participant.numPerson}"></span> <span th:text="${participant.firstName}"></span></td>
-                    <a th:href="@{/evenement/{num_even}/add/{numPerson}(num_even=${evenement.numEvent}, numPerson=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Ajouter</a></p>
+                    <a th:unless="${#lists.contains(evenement.participants, participant)}" th:href="@{/evenement/{num_even}/add/{numPerson}(num_even=${evenement.numEvent}, numPerson=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Ajouter</a></p>
+                    <a th:if="${#lists.contains(evenement.participants, participant)}">Participant déjà ajouté !</a>
                     </p>
                 </tr>
             </div>
