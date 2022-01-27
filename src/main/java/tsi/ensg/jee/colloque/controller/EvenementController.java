@@ -3,12 +3,14 @@ package tsi.ensg.jee.colloque.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import tsi.ensg.jee.colloque.metier.Evenement;
 import tsi.ensg.jee.colloque.metier.Participant;
 import tsi.ensg.jee.colloque.services.EvenementDao;
 import tsi.ensg.jee.colloque.services.ParticipantDao;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,7 +69,11 @@ public class EvenementController {
      * @return View evenements.html
      */
     @PostMapping("/createEvenForm")
-    public String addEvenement(Model model, @ModelAttribute("evenement") Evenement evenement) {
+    public String addEvenement(Model model, @Valid @ModelAttribute("evenement") Evenement evenement, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "createEvenForm";
+        }
         model.addAttribute("evenement", evenement);
         if(evenement.getParticipants().isEmpty()) {
             List<Participant> participants = new ArrayList<>();
