@@ -28,6 +28,8 @@ public class Participant {
     private String lastName;
 
     @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 10)
     private String email;
 
     @Column(nullable = false)

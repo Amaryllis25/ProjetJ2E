@@ -20,16 +20,6 @@ public class ParticipantController {
     @Autowired
     ParticipantDao participantDao;
 
-    @GetMapping("/participant")
-    public String create(Model model) {
-        Participant participant = new Participant("Boby", "Lapointe",
-                "boby.lapointe@jgv.com", "10/01/1975",
-                "ENSG", "...");
-        participantDao.save(participant);
-        model.addAttribute("participant", participant); // Ajout au modèle
-        return "participant";
-    }
-
     @GetMapping("/participant/{numPerson}")
     public String getParticipant(Model model, @PathVariable Long numPerson) {
         if (participantDao.findById(numPerson).isPresent()){
