@@ -41,7 +41,7 @@
             <td><span th:text="${participant.organisation}"></span></td>
             <td><span th:text="${participant.observations}"></span></td>
 
-            <a th:href="@{/participant/{numPerson}(numPerson=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Details</a>
+            <a th:href="@{/participant/{numPerson}(numPerson=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Détails</a>
             <a th:href="@{/editParticipant/{numPerson}(numPerson=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
             <a th:href="@{/deletePart/{numPerson}(numPerson=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
             

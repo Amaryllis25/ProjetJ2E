@@ -14,7 +14,7 @@
     </div>
 
     <div style="margin:15px">
-        <h3>Détails de l'évènement <span th:text="${evenement.title}"></h3>
+        <h3>Détails de l'évènement <span th:text="${evenement.title}"></span></h3>
 
         <p>L'évènement a pour thème : <td><span th:text="${evenement.theme}"></span>.</p>
 
@@ -45,7 +45,7 @@
                     </p>
                 </tr>
             </div>
-            <div th:if="${#lists.size(evenement.participants)} == ${evenement.nbPartMax}" >
+            <div style="margin:15px" th:if="${#lists.size(evenement.participants)} == ${evenement.nbPartMax}" >
                 Il n'y a plus de place dans l'évènement !
             </div>
 
