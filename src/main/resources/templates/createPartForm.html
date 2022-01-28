@@ -25,17 +25,17 @@
             <input hidden type="text" class="form-control" th:field="*{numPerson}"/>
         
             <div class="mb-3 col-12">
-                <input type="text" class="form-control" placeholder="FirstName" th:field="*{firstName}"/>
+                <input type="text" class="form-control" placeholder="* FirstName" th:field="*{firstName}"/>
                 <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">firstName Error</td>
             </div>
         
             <div class="mb-3 col-12">
-                <input type="text" class="form-control" placeholder="LastName" th:field="*{lastName}"/>
+                <input type="text" class="form-control" placeholder="* LastName" th:field="*{lastName}"/>
                 <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">lastName Error</td>
             </div>
         
             <div class="mb-3 col-12">
-                <input type="text" class="form-control" placeholder="email@gmail.com" th:field="*{email}"/>
+                <input type="text" class="form-control" placeholder="* email@gmail.com" th:field="*{email}"/>
                 <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</td>
             </div>
         
@@ -51,13 +51,15 @@
                 <input type="text" class="form-control" placeholder="Observations" th:field="*{observations}"/>
             </div>
 
-            <div class="col-12">
+            <div class="mb-3 col-12">
                 <input type="submit" class="btn btn-outline-success" id="submitButton" th:value="Save">
                 <input type="reset" class="btn btn-outline-secondary" id="resetButton" name="reset" th:value="Reset"/>
             </div>
+
+            <i class="mb-3 col-12">Note : les champs '*' sont obligatoires.</i>
+
+        </form>
     </div>
 
-
-</form>
 </body>
 </html>

@@ -25,7 +25,7 @@
     <input hidden type="text" class="form-control" th:field="*{numEvent}"/>
 
     <div class="mb-3 col-12">
-        <input type="text" class="form-control" placeholder="Titre" th:field="*{title}"/>
+        <input type="text" class="form-control" placeholder="* Titre" th:field="*{title}"/>
         <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Name Error</td>
     </div>
 
@@ -38,12 +38,14 @@
     </div>
 
     <div class="mb-3 col-12">
-        <input type="number" class="form-control" placeholder="Durée: HH/MM" th:field="*{duration}"/>
+        <label for="nbjour">Nombre de jour :</label>
+        <input id="nbjour" type="number" class="form-control" th:field="*{duration}"/>
         <td th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">duration Error</td>
     </div>
 
     <div class="mb-3 col-12">
-        <input type="number" class="form-control" placeholder="Nombre de participants maximum" th:field="*{nbPartMax}"/>
+        <label for="nbmax">Nombre de participants max :</label>
+        <input id="nbmax" type="number" class="form-control" th:field="*{nbPartMax}"/>
         <td th:if="${#fields.hasErrors('nbPartMax')}" th:errors="*{nbPartMax}">nbPartMax Error</td>
 
     </div>
@@ -53,7 +55,7 @@
     </div>
 
     <div class="mb-3 col-12">
-        <input type="text" class="form-control" placeholder="Organisateur" th:field="*{organisator}"/>
+        <input type="text" class="form-control" placeholder="* Organisateur" th:field="*{organisator}"/>
         <td th:if="${#fields.hasErrors('organisator')}" th:errors="*{organisator}">Organisator Error</td>
     </div>
 
@@ -62,7 +64,7 @@
     </div>
 
     <div class="mb-3 col-12">
-        <input type="text" class="form-control" placeholder="Participants" th:field="*{participants}"/>
+        <input type="text" class="form-control" placeholder="Id participants : 1, 2.." th:field="*{participants}"/>
     </div>
 
     <div class="mb-3 col-12">
@@ -70,8 +72,10 @@
         <input type="reset" class="btn btn-outline-secondary" id="resetButton" name="reset" th:value="Reset"/>
     </div>
 
+    <i class="mb-3 col-12">Note : les champs '*' sont obligatoires.</i>
+
+    </form>
 </div>
 
-</form>
 </body>
 </html>
