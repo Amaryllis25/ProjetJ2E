@@ -19,12 +19,12 @@ public class Participant {
 
     @Column(nullable = false)
     @NotEmpty
-    @Size(min = 5)
+    @Size(min = 3)
     private String firstName;
 
     @Column(nullable = false)
     @NotEmpty
-    @Size(min = 5)
+    @Size(min = 4)
     private String lastName;
 
     @Column(nullable = false)

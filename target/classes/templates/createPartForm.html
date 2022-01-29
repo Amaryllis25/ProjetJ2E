@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Colloque</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+    <div style="margin:15px">
+        <a href="/gestion" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Accueil</a>
+    </div>
+
+    <div style="padding:15px; width: 30%" class="col-md-4 ml-auto mr-auto">
+
+        <div>
+            <p>Ajouter un participant :</p>
+        </div>
+
+        <form action="#" th:action="@{/createPartForm}" th:object="${participant}" method="post" modelAttribute="participant">
+            <input hidden type="text" class="form-control" th:field="*{numPerson}"/>
+        
+            <div class="mb-3 col-12">
+                <input type="text" class="form-control" placeholder="* FirstName" th:field="*{firstName}"/>
+                <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">firstName Error</td>
+            </div>
+        
+            <div class="mb-3 col-12">
+                <input type="text" class="form-control" placeholder="* LastName" th:field="*{lastName}"/>
+                <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">lastName Error</td>
+            </div>
+        
+            <div class="mb-3 col-12">
+                <input type="text" class="form-control" placeholder="* email@gmail.com" th:field="*{email}"/>
+                <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</td>
+            </div>
+        
+            <div class="mb-3 col-12">
+                <input type="text" class="form-control" placeholder="BirthDate" th:field="*{birthDate}"/>
+            </div>
+        
+            <div class="mb-3 col-12">
+                <input type="text" class="form-control" placeholder="Organisation" th:field="*{organisation}"/>
+            </div>
+
+            <div class="mb-3 col-12">
+                <input type="text" class="form-control" placeholder="Observations" th:field="*{observations}"/>
+            </div>
+
+            <div class="mb-3 col-12">
+                <input type="submit" class="btn btn-outline-success" id="submitButton" th:value="Save">
+                <input type="reset" class="btn btn-outline-secondary" id="resetButton" name="reset" th:value="Reset"/>
+            </div>
+
+            <i class="mb-3 col-12">Note : les champs '*' sont obligatoires.</i>
+
+        </form>
+    </div>
+
+</body>
+</html>

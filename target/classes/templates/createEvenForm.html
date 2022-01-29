@@ -38,13 +38,13 @@
     </div>
 
     <div class="mb-3 col-12">
-        <label for="nbjour">* Nombre de jour :</label>
+        <label for="nbjour">Nombre de jour :</label>
         <input id="nbjour" type="number" class="form-control" th:field="*{duration}"/>
         <td th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">duration Error</td>
     </div>
 
     <div class="mb-3 col-12">
-        <label for="nbmax">* Nombre de participants max :</label>
+        <label for="nbmax">Nombre de participants max :</label>
         <input id="nbmax" type="number" class="form-control" th:field="*{nbPartMax}"/>
         <td th:if="${#fields.hasErrors('nbPartMax')}" th:errors="*{nbPartMax}">nbPartMax Error</td>
 
