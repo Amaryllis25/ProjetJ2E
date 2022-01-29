@@ -20,15 +20,27 @@
             <h3>Détails de <span th:text="${participant.firstName}"></span> <span th:text="${participant.lastName}"></span></h3>
         
         <div style="padding: 10px"></div>
-            <p>Prénom : <td><span th:text="${participant.firstName}"></span></td></p>
-            <p>Nom : <td><span th:text="${participant.lastName}"></span></td></p>
-            <p>Email : <td><span th:text="${participant.email}"></span></td></p>
-            <p>Date de naissance : <td><span th:text="${participant.birthDate}"></span></td></p>
-            <p>Organisation : <td><span th:text="${participant.organisation}"></span></td></p>
-            <p>Observations :<td><span th:text="${participant.observations}"></span></td></p>
+            <p>Prénom : <span th:text="${participant.firstName}"></span></p>
+            <p>Nom : <span th:text="${participant.lastName}"></span></p>
+            <p>Email : <span th:text="${participant.email}"></span></p>
 
-            <a th:href="@{/editParticipant/{num_even}(num_even=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
-            <a th:href="@{/deletePart/{num_even}(num_even=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
+            <p>Date de naissance :
+                <span style="color:grey" th:if="${participant.birthDate.empty}">Non renseigné</span>
+                <span th:unless="${participant.birthDate}"></span>
+            </p>
+            <p>Organisation :
+                <span style="color:grey" th:if="${participant.organisation.empty}">Non renseigné</span>
+                <span th:unless="${participant.organisation}"></span>
+            </p>
+            <p>Observations :
+                <span style="color:grey" th:if="${participant.observations.empty}">Non renseigné</span>
+                <span th:unless="${participant.observations}"></span>
+            </p>
+
+            <a th:href="@{/editParticipant/{num_even}(num_even=${participant.numPerson})}"
+               class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
+            <a th:href="@{/deletePart/{num_even}(num_even=${participant.numPerson})}"
+               class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
         </div>
     </body>
 </html>

@@ -16,18 +16,25 @@
     <div style="margin:15px">
         <h3>Détails de l'évènement <span th:text="${evenement.title}"></span></h3>
 
-        <p>L'évènement a pour thème : <td><span th:text="${evenement.theme}"></span>.</p>
+        <p>L'évènement a pour thème :
+            <span style="color:grey" th:if="${evenement.theme.empty}">Non renseigné</span>
+            <span th:unless="${evenement.theme}"></span>
+        </p>
 
         <p>L'évènement débute le <span th:text="${evenement.beginDate}"></span> pour une durée de
             <span th:text="${evenement.duration}"></span> jours avec <span th:text="${evenement.nbPartMax}"></span> participants maximum.</p>
 
-        <div>
-            <p>Description :</p>
-            <p><span th:text="${evenement.description}"></span></p>
-        </div>
+        <p>Description :
+            <span style="color:grey" th:if="${evenement.description.empty}">Non renseigné</span>
+            <span th:unless="${evenement.description}"></span>
+        </p>
 
         <p>L'organisateur est <span th:text="${evenement.organisator}"></span>.</p>
-        <p>Le type d'évènement est : <td><span th:text="${evenement.typeEvent}"></span>.</p>
+
+        <p>Le type d'évènement est :
+            <span style="color:grey" th:if="${evenement.typeEvent.empty}">Non renseigné</span>
+            <span th:unless="${evenement.typeEvent}"></span>
+        </p>
 
         <p>Les participants sont :
             <tr th:each="participant : ${evenement.participants}">
@@ -38,7 +45,7 @@
         </p>
 
         <p>La liste des personnes qui peuvent être inscrites :</p>
-        <div>
+        <div style="margin:15px">
             <tr th:if="${participants.empty}">
                 <td colspan="2"> Aucun participants inscrit</td>
             </tr>

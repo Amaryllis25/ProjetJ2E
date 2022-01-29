@@ -25,12 +25,6 @@
         </tr>
     </div>
 
-    <!--
-        <div style="margin:15px" class="container-fluid justify-content-between">
-            <p>Leurs firstName, lastName, email, birthDate, organisation, observations sont renseignés :</p>
-        </div>-->
-
-
     <tr th:each="participant : ${participants}">     
 
         <div style="margin:15px" class="d-grid gap-2 d-md-block container-fluid">
@@ -41,9 +35,12 @@
             <td><span th:text="${participant.organisation}"></span></td>
             <td><span th:text="${participant.observations}"></span></td>
 
-            <a th:href="@{/participant/{numPerson}(numPerson=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Détails</a>
-            <a th:href="@{/editParticipant/{numPerson}(numPerson=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
-            <a th:href="@{/deletePart/{numPerson}(numPerson=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
+            <a th:href="@{/participant/{numPerson}(numPerson=${participant.numPerson})}"
+               class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Détails</a>
+            <a th:href="@{/editParticipant/{numPerson}(numPerson=${participant.numPerson})}"
+               class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
+            <a th:href="@{/deletePart/{numPerson}(numPerson=${participant.numPerson})}"
+               class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
             
         </div>
 
