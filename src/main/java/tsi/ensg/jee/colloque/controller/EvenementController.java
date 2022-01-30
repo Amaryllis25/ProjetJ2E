@@ -136,6 +136,13 @@ public class EvenementController {
             return "redirect:/evenement/" + numEvent;
     }
 
+    /**
+     * Function which suppress a participant to evenement
+     * @param model the view
+     * @param numEvent the id of the event
+     * @param numPerson the id of the participant
+     * @return View evenement.html
+     */
     @GetMapping("/evenement/{numEvent}/supp/{numPerson}")
     public String suppParticipant(Model model, @PathVariable("numEvent") Long numEvent, @PathVariable("numPerson") Long numPerson) {
 

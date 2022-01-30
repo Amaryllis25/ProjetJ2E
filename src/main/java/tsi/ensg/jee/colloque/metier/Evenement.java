@@ -128,8 +128,14 @@ public class Evenement {
 
     public void setParticipants(List<Participant> participants) { this.participants = participants; }
 
+    /**
+     * Function which add a participant to the list participants
+     */
     public void addParticipant(Participant participant) { this.participants.add(participant); }
 
+    /**
+     * Function which suppress a participant to the list participants
+     */
     public void suppParticipant(Participant participant) {
         int i;
         for (i = 0; i < participants.size(); i++)
