@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import tsi.ensg.jee.colloque.metier.Evenement;
 import tsi.ensg.jee.colloque.metier.Participant;
 import tsi.ensg.jee.colloque.services.ParticipantDao;
 
@@ -70,6 +71,8 @@ public class ParticipantController {
         if (bindingResult.hasErrors()) {
             return "createPartForm";
         }
+
+        model.addAttribute("participants", participantDao.findAll());
         model.addAttribute("participant", participant);
         participantDao.save(participant);
         return "redirect:/participants";
@@ -84,6 +87,7 @@ public class ParticipantController {
     @GetMapping("/editParticipant/{numPerson}")
     public String editParticipant(Model model, @PathVariable("numPerson") Long numPerson) {
         Participant participant = participantDao.findById(numPerson).get();
+
         model.addAttribute("participant", participant);
         return "createPartForm";
     }

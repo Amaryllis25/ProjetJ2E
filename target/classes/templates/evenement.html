@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Evènement</title>
+    <title>Colloque</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -21,8 +21,20 @@
             <span th:unless="${evenement.theme}"></span>
         </p>
 
-        <p>L'évènement débute le <span th:text="${evenement.beginDate}"></span> pour une durée de
-            <span th:text="${evenement.duration}"></span> jours avec <span th:text="${evenement.nbPartMax}"></span> participants maximum.</p>
+
+        <p th:if="${evenement.beginDate.empty}">Date de début : <span style="color:grey">Non renseigné</span></p>
+        <p th:if="${evenement.beginDate.empty}">Durée :
+            <span style="color:grey" th:text="${evenement.duration}"></span>
+        </p>
+        <p th:if="${evenement.beginDate.empty}">Nombre de participants max :
+            <span style="color:grey" th:text="${evenement.nbPartMax}"></span>
+        </p>
+
+        <p th:unless="${evenement.beginDate}">L'évènement débute le
+            <span th:text="${evenement.beginDate}"></span> pour une durée de
+            <span th:text="${evenement.duration}"></span> jours avec
+            <span th:text="${evenement.nbPartMax}"></span> participants maximum.
+        </p>
 
         <p>Description :
             <span style="color:grey" th:if="${evenement.description.empty}">Non renseigné</span>
@@ -53,8 +65,12 @@
             <div th:unless="${#lists.size(evenement.participants)} == ${evenement.nbPartMax}">
                 <tr th:each="participant : ${participants}">
                     <p>
-                    <td>Participant <span th:text="${participant.numPerson}"></span> <span th:text="${participant.firstName}"></span></td>
-                    <a th:unless="${#lists.contains(evenement.participants, participant)}" th:href="@{/evenement/{num_even}/add/{numPerson}(num_even=${evenement.numEvent}, numPerson=${participant.numPerson})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Ajouter</a></p>
+                    <td>Participant
+                    <span th:text="${participant.numPerson}"></span>
+                    <span th:text="${participant.firstName}"></span></td>
+                    <a th:unless="${#lists.contains(evenement.participants, participant)}"
+                       th:href="@{/evenement/{num_even}/add/{numPerson}(num_even=${evenement.numEvent}, numPerson=${participant.numPerson})}"
+                       class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Ajouter</a></p>
                     <a th:if="${#lists.contains(evenement.participants, participant)}">Participant déjà ajouté !</a>
                     </p>
                 </tr>
@@ -63,8 +79,10 @@
                 Il n'y a plus de place dans l'évènement !
             </div>
 
-            <p><a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
-            <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a></p>
+            <p><a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}"
+                  class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
+            <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}"
+               class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a></p>
         </div>
     </div>
 </body>

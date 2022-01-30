@@ -35,7 +35,16 @@
             </div>
         
             <div class="mb-3 col-12">
-                <input type="text" class="form-control" placeholder="* email@gmail.com" th:field="*{email}"/>
+                <input id="email" type="text" class="form-control" placeholder="* email@gmail.com" th:field="*{email}"/>
+                <span th:value="*{email}"></span>
+                <!--
+                <span th:if="${#lists.contains(participants.email, #fields.email)}">Cette adresse existe déjà, voulez fusionner
+                    les 2 participants
+
+                    <a th:href="@{/editParticipant/{numPerson}(numPerson=${participant.numPerson})}"
+                       class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Oui</a>
+                </span>-->
+
                 <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</td>
             </div>
         

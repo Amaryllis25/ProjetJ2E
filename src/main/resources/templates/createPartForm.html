@@ -35,7 +35,7 @@
             </div>
         
             <div class="mb-3 col-12">
-                <input type="text" class="form-control" placeholder="* email@gmail.com" th:field="*{email}"/>
+                <input id="email" type="text" class="form-control" placeholder="* email@gmail.com" th:field="*{email}"/>
                 <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</td>
             </div>
         

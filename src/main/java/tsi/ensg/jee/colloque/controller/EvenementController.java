@@ -122,7 +122,6 @@ public class EvenementController {
     public String addParticipant(Model model, @PathVariable("numEvent") Long numEvent, @PathVariable("numPerson") Long numPerson) {
 
         Evenement evenement = evenementDao.findById(numEvent).get();
-        System.out.println(evenement.getParticipants().size());
 
         if (evenement.getParticipants().size() < evenement.getNbPartMax()) {
             Participant participant = participantDao.findById(numPerson).get();
