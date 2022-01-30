@@ -32,15 +32,7 @@ Le code est organisé en deux grandes parties:
 - La partie main, contenant le code principal de l'application ;
 - La partie test, contenant les tests unitaires et d'intégration continue.
 
-## Utilisation
-Pour utiliser l'application, il faut la démarrer:
-#### Démarrer l'application
-```
-mvn spring-boot:run
-```
-Une fois l'application démarrée, l'utilisateur peut naviguer sur le site, en tant qu'admin ou non. L'utilisateur peut créer un évènement ou un participant, le supprimer ou encore le modifier. Il peut également ajouter un participant à un évènement.
-
-### En lignes de commande
+## Quelques lignes de commande utiles
 #### Commande globale
 ```
 mvn clean package jacoco:report
@@ -61,3 +53,24 @@ mvn jacoco:report
 ```
 mvn spring-boot:run
 ```
+
+
+## Utilisation
+Pour utiliser l'application, il faut la démarrer:
+#### Démarrer l'application
+```
+mvn spring-boot:run
+```
+
+#### Ouvrir l'application dans un navigateur
+```
+localhost:8080/home.html
+```
+Une fois l'application démarrée, seul les administrateurs pouvant s'authentifier peuvent accéder au site :
+```
+Username : admin
+Password : password
+```
+L'administrateur peut créer un évènement ou un participant, le supprimer ou encore le modifier.
+Il peut également ajouter des participants à un évènement.
+Lorsqu'il veut sortir de l'application, il peut se déconnecté.
