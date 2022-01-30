@@ -19,6 +19,12 @@ public class ParticipantController {
     @Autowired
     ParticipantDao participantDao;
 
+    /**
+     * Function which get a participant
+     * @param model the view
+     * @param numPerson the id of the participant
+     * @return View participant.html
+     */
     @GetMapping("/participant/{numPerson}")
     public String getParticipant(Model model, @PathVariable Long numPerson) {
         if (participantDao.findById(numPerson).isPresent()){
@@ -28,12 +34,22 @@ public class ParticipantController {
         return "participant"; //Envoi vers la vue
     }
 
+    /**
+     * Function which get all participants
+     * @param model the view
+     * @return View participants.html
+     */
     @GetMapping("/participants")
     public String getParticipants(Model model) {
         model.addAttribute("participants",participantDao.findAll()); // Ajout au modèle
         return "participants"; //Envoi vers la vue
     }
 
+    /**
+     * Function which recover informations about a participant
+     * @param model the view
+     * @return View createPartForm.html
+     */
     @GetMapping("/createPartForm")
     public String createParticipant(Model model) {
         model.addAttribute("participants",participantDao.findAll()); // Ajout au modèle
@@ -41,6 +57,13 @@ public class ParticipantController {
         return "createPartForm";
     }
 
+    /**
+     * Function which add a new participant to table participant
+     * @param model the view
+     * @param participant the participant
+     * @param bindingResult bind error to result
+     * @return View createPartForm.html
+     */
     @PostMapping("/createPartForm")
     public String addParticipant(Model model, @Valid @ModelAttribute("participant") Participant participant, BindingResult bindingResult) {
 
@@ -52,6 +75,12 @@ public class ParticipantController {
         return "redirect:/participants";
     }
 
+    /**
+     * Function which edit a participant to participant
+     * @param model the view
+     * @param numPerson the id of the participant
+     * @return View createPartForm.html
+     */
     @GetMapping("/editParticipant/{numPerson}")
     public String editParticipant(Model model, @PathVariable("numPerson") Long numPerson) {
         Participant participant = participantDao.findById(numPerson).get();
@@ -66,9 +95,8 @@ public class ParticipantController {
      * @return View participants.html
      */
     @GetMapping("/deletePart/{numPerson}")
-    public String deleteEvenement(Model model, @PathVariable("numPerson") Long numPerson) {
+    public String deleteParticipant(Model model, @PathVariable("numPerson") Long numPerson) {
         Participant participant = participantDao.findById(numPerson).get();
-        System.out.println("test");
         participantDao.delete(participant);
         return "redirect:/participants";
     } //Envoi vers la vue

@@ -102,7 +102,7 @@ public class EvenementController {
      * Function which delete an event to evenements.html
      * @param model the view
      * @param numEvent the id of the event
-     * @return View evenements.html&
+     * @return View evenements.html
      */
     @GetMapping("/deleteEvent/{numEvent}")
     public String deleteEvenement(Model model, @PathVariable("numEvent") Long numEvent) {
@@ -111,7 +111,13 @@ public class EvenementController {
         return "redirect:/evenements";
     } //Envoi vers la vu
 
-
+    /**
+     * Function which add a participant to evenement
+     * @param model the view
+     * @param numEvent the id of the event
+     * @param numPerson the id of the participant
+     * @return View evenement.html
+     */
     @GetMapping("/evenement/{numEvent}/add/{numPerson}")
     public String addParticipant(Model model, @PathVariable("numEvent") Long numEvent, @PathVariable("numPerson") Long numPerson) {
 
