@@ -17,20 +17,20 @@
         <h3>Détails de l'évènement <span th:text="${evenement.title}"></span></h3>
 
         <p>L'évènement a pour thème :
-            <span style="color:grey" th:if="${evenement.theme.empty}">Non renseigné</span>
-            <span th:unless="${evenement.theme}"></span>
+            <span th:if="${evenement.theme.empty}" style="color:grey" >Non renseigné</span>
+            <span th:unless="${evenement.theme.empty}" th:text="${evenement.theme}"></span>
         </p>
 
 
         <p th:if="${evenement.beginDate.empty}">Date de début : <span style="color:grey">Non renseigné</span></p>
         <p th:if="${evenement.beginDate.empty}">Durée :
-            <span style="color:grey" th:text="${evenement.duration}"></span>
+            <span th:text="${evenement.duration}"></span>
         </p>
         <p th:if="${evenement.beginDate.empty}">Nombre de participants max :
-            <span style="color:grey" th:text="${evenement.nbPartMax}"></span>
+            <span th:text="${evenement.nbPartMax}"></span>
         </p>
 
-        <p th:unless="${evenement.beginDate}">L'évènement débute le
+        <p th:unless="${evenement.beginDate.empty}">L'évènement débute le
             <span th:text="${evenement.beginDate}"></span> pour une durée de
             <span th:text="${evenement.duration}"></span> jours avec
             <span th:text="${evenement.nbPartMax}"></span> participants maximum.
@@ -38,14 +38,14 @@
 
         <p>Description :
             <span style="color:grey" th:if="${evenement.description.empty}">Non renseigné</span>
-            <span th:unless="${evenement.description}"></span>
+            <span th:unless="${evenement.description.empty}" th:text="${evenement.description}"></span>
         </p>
 
         <p>L'organisateur est <span th:text="${evenement.organisator}"></span>.</p>
 
         <p>Le type d'évènement est :
             <span style="color:grey" th:if="${evenement.typeEvent.empty}">Non renseigné</span>
-            <span th:unless="${evenement.typeEvent}"></span>
+            <span th:unless="${evenement.typeEvent.empty}" th:text="${evenement.typeEvent}"></span>
         </p>
 
         <p>Les participants sont :

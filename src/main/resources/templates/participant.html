@@ -26,15 +26,15 @@
 
             <p>Date de naissance :
                 <span style="color:grey" th:if="${participant.birthDate.empty}">Non renseigné</span>
-                <span th:unless="${participant.birthDate}"></span>
+                <span th:unless="${participant.birthDate.empty}" th:text="${participant.birthDate}"></span>
             </p>
             <p>Organisation :
                 <span style="color:grey" th:if="${participant.organisation.empty}">Non renseigné</span>
-                <span th:unless="${participant.organisation}"></span>
+                <span th:unless="${participant.organisation.empty}" th:text="${participant.organisation}"></span>
             </p>
             <p>Observations :
                 <span style="color:grey" th:if="${participant.observations.empty}">Non renseigné</span>
-                <span th:unless="${participant.observations}"></span>
+                <span th:unless="${participant.observations.empty}" th:text="${participant.observations}"></span>
             </p>
 
             <a th:href="@{/editParticipant/{num_even}(num_even=${participant.numPerson})}"

@@ -50,7 +50,7 @@ public class Evenement {
     @Column(nullable = false)
     private String typeEvent;
 
-    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @ManyToMany(cascade={CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinColumn(name = "num_person")
     private List<Participant> participants = new ArrayList<Participant>();
 
