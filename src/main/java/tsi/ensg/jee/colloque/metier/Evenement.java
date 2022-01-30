@@ -7,6 +7,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
@@ -128,6 +129,15 @@ public class Evenement {
     public void setParticipants(List<Participant> participants) { this.participants = participants; }
 
     public void addParticipant(Participant participant) { this.participants.add(participant); }
+
+    public void suppParticipant(Participant participant) {
+        int i;
+        for (i = 0; i < participants.size(); i++)
+        {
+            if (participants.get(i) == participant) break;
+        }
+        participants.remove(i);
+    }
 
     /**
      * Function which verify if two object are the same

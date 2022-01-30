@@ -23,9 +23,12 @@
         <tr th:each="evenement : ${evenements}">
             <div style="margin:15px" class="d-grid gap-2 d-md-block container-fluid">
             <td>Titre : <span th:text="${evenement.title}"></span></td>
-                <a th:href="@{/evenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Détails</a>
-                <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
-                <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
+                <a th:href="@{/evenement/{num_even}(num_even=${evenement.numEvent})}"
+                   class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Détails</a>
+                <a th:href="@{/editEvenement/{num_even}(num_even=${evenement.numEvent})}"
+                   class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
+                <a th:href="@{/deleteEvent/{num_even}(num_even=${evenement.numEvent})}"
+                   class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
             </div>
         </tr>
     </body>

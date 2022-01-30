@@ -24,7 +24,7 @@
 
         <p th:if="${evenement.beginDate.empty}">Date de début : <span style="color:grey">Non renseigné</span></p>
         <p th:if="${evenement.beginDate.empty}">Durée :
-            <span th:text="${evenement.duration}"></span>
+            <span th:text="${evenement.duration}"></span> jours
         </p>
         <p th:if="${evenement.beginDate.empty}">Nombre de participants max :
             <span th:text="${evenement.nbPartMax}"></span>
@@ -71,7 +71,9 @@
                     <a th:unless="${#lists.contains(evenement.participants, participant)}"
                        th:href="@{/evenement/{num_even}/add/{numPerson}(num_even=${evenement.numEvent}, numPerson=${participant.numPerson})}"
                        class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Ajouter</a></p>
-                    <a th:if="${#lists.contains(evenement.participants, participant)}">Participant déjà ajouté !</a>
+                    <a th:if="${#lists.contains(evenement.participants, participant)}">Participant déjà ajouté !
+                    <a th:href="@{/evenement/{num_even}/supp/{numPerson}(num_even=${evenement.numEvent}, numPerson=${participant.numPerson})}"
+                       class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer de cet évènement</a></a>
                     </p>
                 </tr>
             </div>

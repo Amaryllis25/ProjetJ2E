@@ -135,4 +135,16 @@ public class EvenementController {
         }
             return "redirect:/evenement/" + numEvent;
     }
+
+    @GetMapping("/evenement/{numEvent}/supp/{numPerson}")
+    public String suppParticipant(Model model, @PathVariable("numEvent") Long numEvent, @PathVariable("numPerson") Long numPerson) {
+
+        Evenement evenement = evenementDao.findById(numEvent).get();
+
+        Participant participant = participantDao.findById(numPerson).get();
+        evenement.suppParticipant(participant);
+        model.addAttribute("evenement", evenement);
+        evenementDao.save(evenement);
+        return "redirect:/evenement/" + numEvent;
+    }
 }
