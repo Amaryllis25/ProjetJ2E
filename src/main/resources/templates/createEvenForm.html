@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Colloque</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+    <div style="margin:15px">
+        <a href="/gestion" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Accueil</a>
+    </div>
+
+    <div style="padding:15px; width: 30%" class="col-md-4 ml-auto mr-auto">
+
+        <div>
+            <p>Ajouter un évènement :</p>
+        </div>
+
+<form action="#" th:action="@{/createEvenForm}" th:object="${evenement}" method="post" modelAttribute="evenement">
+    <input hidden type="text" class="form-control" th:field="*{numEvent}"/>
+
+    <div class="mb-3 col-12">
+        <input type="text" class="form-control" placeholder="* Titre" th:field="*{title}"/>
+        <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Name Error</td>
+    </div>
+
+    <div class="mb-3 col-12">
+        <input type="text" class="form-control" placeholder="Theme" th:field="*{theme}"/>
+    </div>
+
+    <div class="mb-3 col-12">
+        <input type="text" class="form-control" placeholder="Date de début: JJ/MM/AAAA" th:field="*{beginDate}"/>
+    </div>
+
+    <div class="mb-3 col-12">
+        <label for="nbjour">* Nombre de jour :</label>
+        <input id="nbjour" type="number" class="form-control" th:field="*{duration}"/>
+        <td th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">duration Error</td>
+    </div>
+
+    <div class="mb-3 col-12">
+        <label for="nbmax">* Nombre de participants max :</label>
+        <input id="nbmax" type="number" class="form-control" th:field="*{nbPartMax}"/>
+        <td th:if="${#fields.hasErrors('nbPartMax')}" th:errors="*{nbPartMax}">nbPartMax Error</td>
+
+    </div>
+
+    <div class="mb-3 col-12">
+        <input type="text" class="form-control" placeholder="Description" th:field="*{description}"/>
+    </div>
+
+    <div class="mb-3 col-12">
+        <input type="text" class="form-control" placeholder="* Organisateur" th:field="*{organisator}"/>
+        <td th:if="${#fields.hasErrors('organisator')}" th:errors="*{organisator}">Organisator Error</td>
+    </div>
+
+    <div class="mb-3 col-12">
+        <input type="text" class="form-control" placeholder="Type d'évènement" th:field="*{typeEvent}"/>
+    </div>
+
+    <p class="mb-3 col-12">Une fois l'évènement enregistré, allez ensuite voir la liste des évènements et les
+        détails de l'évènement pour ajouter des participants.</p>
+
+    <div class="mb-3 col-12">
+        <input type="submit" class="btn btn-outline-success" id="submitButton" th:value="Save">
+        <input type="reset" class="btn btn-outline-secondary" id="resetButton" name="reset" th:value="Reset"/>
+    </div>
+
+    <i class="mb-3 col-12">Note : les champs '*' sont obligatoires.</i>
+
+    </form>
+</div>
+
+</body>
+</html>

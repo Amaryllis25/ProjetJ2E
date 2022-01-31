@@ -3,6 +3,8 @@ package tsi.ensg.jee.colloque.metier;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -12,16 +14,22 @@ public class Participant {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "num_person")
+    @Column(name = "numPerson")
     private long numPerson;
 
     @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 3)
     private String firstName;
 
     @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 4)
     private String lastName;
 
     @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 10)
     private String email;
 
     @Column(nullable = false)
@@ -33,9 +41,22 @@ public class Participant {
     @Column(nullable = false)
     private String observations;
 
+    /**
+     * Default constructor of Participant Class
+     */
     public Participant() {
     }
 
+    /**
+     * Constructor of Participant Class
+     * @param firstName of the participant
+     * @param lastName of the participant
+     * @param lastName of the participant
+     * @param email of the participant
+     * @param birthDate of participant
+     * @param organisation of the participant
+     * @param observations of the participant
+     */
     public Participant(String firstName, String lastName, String email,
                        String birthDate, String organisation, String observations) {
         this.firstName = firstName;
@@ -46,6 +67,9 @@ public class Participant {
         this.observations = observations;
     }
 
+    /**
+     * All getters and setters of Participant class
+     */
     public long getNumPerson() { return numPerson; }
 
     public void setNumPerson(long numPerson) { this.numPerson = numPerson; }
@@ -74,6 +98,11 @@ public class Participant {
 
     public void setLastName(String lastName) { this.lastName = lastName; }
 
+    /**
+     * Function which verify if two object are the same
+     * @param o Object in entry
+     * @return true or false
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -82,11 +111,19 @@ public class Participant {
         return numPerson == that.numPerson && firstName.equals(that.firstName) && lastName.equals(that.lastName) && email.equals(that.email) && birthDate.equals(that.birthDate) && organisation.equals(that.organisation) && observations.equals(that.observations);
     }
 
+    /**
+     * Function which calculate the hashcode of an object
+     * @return hashcode
+     */
     @Override
     public int hashCode() {
         return Objects.hash(numPerson, firstName, lastName, email, birthDate, organisation, observations);
     }
 
+    /**
+     * Function which modify the print of the Participant object
+     * @return String
+     */
     @Override
     public String toString() {
         return "Participant{" +

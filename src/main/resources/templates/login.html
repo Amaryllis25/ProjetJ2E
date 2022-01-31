@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Colloque</title>
+        <link rel="stylesheet" href="styles/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body class="row justify-content-center">
+
+        <div style="width: 40%; height: 50%; margin-top: 40px">
+
+            <div th:if="${param.error}" style="padding-bottom: 20px">
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}" style="padding-bottom: 20px">
+                You have been logged out.
+            </div>
+
+            <h2 class="row justify-content-center">Login Form</h2>
+
+            <form th:action="@{/login}" method="post">
+
+                <div class="col-3"></div>
+                    <div class="col-md-12 form-group">
+                        <input type="text" class="form-control" placeholder="Username" name="username"/>
+                    </div>
+                
+                <div class="row justify-content-center"></div>
+                    <div class="col-md-12 form-group">
+                        <input type="password" class="form-control" placeholder="Password" name="password"/>
+                    </div>
+
+                <div class="row justify-content-center"></div>
+                    <div class="col-md-12 form-group">
+                        <input type="submit" class="btn btn-block btn-login" value="Sign In"/>
+                    </div>
+
+            </form>
+
+        </div>
+
+    </body>
+</html>

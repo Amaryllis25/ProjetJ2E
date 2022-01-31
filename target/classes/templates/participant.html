@@ -3,8 +3,44 @@
 <head>
     <title>Colloque</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-<p th:text="'Hello, ' + ${participants.firstName} + '!'" />
-</body>
+    <body>
+
+        <div style="margin:15px">
+            <a href="/gestion" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Accueil</a>
+        </div>
+
+        <div style="margin:15px">
+
+            <h3>Détails de <span th:text="${participant.firstName}"></span> <span th:text="${participant.lastName}"></span></h3>
+        
+        <div style="padding: 10px"></div>
+            <p>Prénom : <span th:text="${participant.firstName}"></span></p>
+            <p>Nom : <span th:text="${participant.lastName}"></span></p>
+            <p>Email : <span th:text="${participant.email}"></span></p>
+
+            <p>Date de naissance :
+                <span style="color:grey" th:if="${participant.birthDate.empty}">Non renseigné</span>
+                <span th:unless="${participant.birthDate.empty}" th:text="${participant.birthDate}"></span>
+            </p>
+            <p>Organisation :
+                <span style="color:grey" th:if="${participant.organisation.empty}">Non renseigné</span>
+                <span th:unless="${participant.organisation.empty}" th:text="${participant.organisation}"></span>
+            </p>
+            <p>Observations :
+                <span style="color:grey" th:if="${participant.observations.empty}">Non renseigné</span>
+                <span th:unless="${participant.observations.empty}" th:text="${participant.observations}"></span>
+            </p>
+
+            <a th:href="@{/editParticipant/{num_even}(num_even=${participant.numPerson})}"
+               class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Modifier</a>
+            <a th:href="@{/deletePart/{num_even}(num_even=${participant.numPerson})}"
+               class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Supprimer</a>
+        </div>
+    </body>
 </html>

@@ -3,7 +3,11 @@ package tsi.ensg.jee.colloque.metier;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,10 +18,12 @@ public class Evenement {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "num_even")
+    @Column(name = "numEvent")
     private long numEvent;
 
     @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 5)
     private String title;
 
     @Column(nullable = false)
@@ -27,27 +33,45 @@ public class Evenement {
     private String beginDate;
 
     @Column(nullable = false)
+    @Min(1)
     private int duration;
 
     @Column(nullable = false)
+    @Min(1)
     private int nbPartMax;
 
     @Column(nullable = false)
     private String description;
 
     @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 5)
     private String organisator;
 
     @Column(nullable = false)
     private String typeEvent;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade={CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinColumn(name = "num_person")
     private List<Participant> participants = new ArrayList<Participant>();
 
+    /**
+     * Default constructor of Evenement Class
+     */
     public Evenement() {
     }
 
+    /**
+     * Constructor of Evenement Class
+     * @param title title of the event
+     * @param theme theme of the event
+     * @param beginDate begin date of the event
+     * @param duration duration of the event
+     * @param nbPartMax number maximum of participants in the event
+     * @param description description of the event
+     * @param organisator organisator of the event
+     * @param typeEvent type of the event
+     */
     public Evenement(String title, String theme, String beginDate,
                      int duration, int nbPartMax, String description,
                      String organisator, String typeEvent) {
@@ -61,6 +85,9 @@ public class Evenement {
         this.typeEvent = typeEvent;
     }
 
+    /**
+     * All getters and setters of Evenement class
+     */
     public long getNumEvent() { return numEvent; }
 
     public void setNumEvent(long numEvent) { this.numEvent = numEvent; }
@@ -101,8 +128,28 @@ public class Evenement {
 
     public void setParticipants(List<Participant> participants) { this.participants = participants; }
 
+    /**
+     * Function which add a participant to the list participants
+     */
     public void addParticipant(Participant participant) { this.participants.add(participant); }
 
+    /**
+     * Function which suppress a participant to the list participants
+     */
+    public void suppParticipant(Participant participant) {
+        int i;
+        for (i = 0; i < participants.size(); i++)
+        {
+            if (participants.get(i) == participant) break;
+        }
+        participants.remove(i);
+    }
+
+    /**
+     * Function which verify if two object are the same
+     * @param o Object in entry
+     * @return true or false
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -111,11 +158,19 @@ public class Evenement {
         return numEvent == evenement.numEvent && duration == evenement.duration && nbPartMax == evenement.nbPartMax && title.equals(evenement.title) && theme.equals(evenement.theme) && beginDate.equals(evenement.beginDate) && description.equals(evenement.description) && organisator.equals(evenement.organisator) && typeEvent.equals(evenement.typeEvent) && participants.equals(evenement.participants);
     }
 
+    /**
+     * Function which calculate the hashcode of an object
+     * @return hashcode
+     */
     @Override
     public int hashCode() {
         return Objects.hash(numEvent, title, theme, beginDate, duration, nbPartMax, description, organisator, typeEvent, participants);
     }
 
+    /**
+     * Function which modify the print of the Evenement object
+     * @return String
+     */
     @Override
     public String toString() {
         return "Evenement{" +
